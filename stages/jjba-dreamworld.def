@@ -1,0 +1,225 @@
+;ジョジョの奇妙な冒険～未来への遺産～より「夢の世界」ステージ　by Ga129
+;新MUGEN専用
+;改変自由です
+
+[Info]
+;name = "JJBA - Dream World"
+;displayname = "JJBA - Dream World"
+name = ")"
+versiondate = 10,30,2010
+mugenversion = 1.0
+author = "Gal129"
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -120
+boundright = 120
+boundhigh = -154
+boundlow = 0
+verticalfollow = 0.5
+floortension = 100
+tension = 50
+zoomin = 1
+zoomout = 0.8
+
+overdrawhigh = 0
+overdrawlow = 0
+cuthigh = 35
+cutlow = 25
+
+[PlayerInfo]
+p1startx = -96
+p1starty = 0
+p1startz = 0
+p1facing = 1
+p2startx = 96
+p2starty = 0
+p2startz = 0
+p2facing = -1
+leftbound = -1000
+rightbound = 1000
+topbound = 0
+botbound = 150
+
+[Scaling]
+topz = 0
+botz = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+hires = 0
+zoffset = 218
+autoturn = 1
+resetBG = 0
+localcoord = 320, 240
+xscale = .833333333333333
+yscale = 1.07142857142857
+
+[Shadow]
+intensity = 96
+color = 64,48,32
+yscale = .16666666666
+fade.range = 0,0
+
+[Reflection]
+intensity = 0
+
+[Music]
+bgmusic = sound/Theme_of_Death13.mp3
+bgvolume = 255
+
+[BGdef] 
+spr = stages/jjba-dreamworld.sff
+debugbg = 0
+
+;遠景
+[BG bg]
+type = normal
+spriteno = 1,2
+start = 0,240
+delta= .9125,.9125
+tile = 1,1
+mask = 0
+
+[BG bg]
+type = normal
+spriteno = 1,1
+start = 0,240
+delta= .9125,.9125
+tile = 1,0
+mask = 0
+
+[BG bg]
+type = normal
+spriteno = 1,0
+start = 0,240
+delta= .9125,.9125
+mask = 0
+
+;近景
+[BG bg]
+type = normal
+spriteno = 0,0
+start = 0,240
+delta= 1,1
+mask = 1
+
+[BG bg]
+type = normal
+spriteno = 0,1
+start = 0,240
+delta= 1,1
+mask = 1
+
+[BG bg]
+type = normal
+spriteno = 0,2
+start = 0,240
+delta= 1,1
+mask = 1
+
+[BG bg]
+type = normal
+spriteno = 0,3
+start = 0,240
+delta= 1,1
+mask = 1
+
+[BG bg]
+type = normal
+spriteno = 0,4
+start = 0,240
+delta= 1,1
+mask = 1
+
+[BG bg]
+type = normal
+spriteno = 0,5
+start = 0,240
+delta= 1,1
+mask = 1
+
+[BG bg]
+type = normal
+spriteno = 0,6
+start = 0,240
+delta= 1,1
+mask = 1
+
+[BG bg]
+type = normal
+spriteno = 0,7
+start = 0,240
+delta= 1,1
+mask = 1
+
+[BG bg]
+type = normal
+spriteno = 0,8
+start = 0,240
+delta= 1,1
+mask = 1
+
+[BG bg]
+type = normal
+spriteno = 0,9
+start = 0,240
+delta= 1,1
+mask = 1
+
+[BG bg]
+type = normal
+spriteno = 0,10
+start = 0,240
+delta= 1,1
+mask = 1
+
+[BG bg]
+type = normal
+spriteno = 0,11
+start = 0,240
+delta= 1,1
+mask = 1
+
+;オブジェ1
+[BG bg]
+type = anim
+actionno = 2
+start = 0,240
+delta= 1,1
+mask = 0
+
+[Begin Action 2]  
+2,0, 0,0, 6
+2,1, 0,0, 6
+2,2, 0,0, 6
+2,3, 0,0, 6
+2,4, 0,0, 6
+2,3, 0,0, 6
+2,2, 0,0, 6
+2,1, 0,0, 6
+
+;オブジェ2
+[BG bg]
+type = anim
+actionno = 3
+start = 0,240
+delta= 1,1
+mask = 0
+
+[Begin Action 3]  
+3,0, 0,0, 6
+3,1, 0,0, 6
+3,2, 0,0, 6
+3,3, 0,0, 6
+3,4, 0,0, 6
+3,3, 0,0, 6
+3,2, 0,0, 6
+3,1, 0,0, 6
+

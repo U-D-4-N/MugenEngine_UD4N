@@ -1,0 +1,241 @@
+[Info]
+;name = "MOTW - Live house Old line"
+name = "5"
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -80
+boundright = 80
+boundhigh = -90
+boundlow = -10
+verticalfollow = .5
+tension = 50
+zoomin = 1
+zoomout = 0.8
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound  = -1000
+rightbound =  1000
+topbound  =  0
+botbound  =  0
+
+[Scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 210
+autoturn = 1
+resetBG = 1
+
+[Shadow]
+color = 128,128,128
+yscale = .3
+
+[Music]
+bgmusic = 
+bgvolume = 0
+
+[BGdef]
+spr = stages/motw-livehouseoldline.sff
+
+[BG horizon]
+type = normal
+spriteno = 0,0
+start = 0,86
+delta = .8,1
+
+[BG building light]
+type = anim
+actionno = 1
+start = 0,86
+delta = .8,1
+
+[BG buildings]
+type = anim
+actionno = 2
+start = 0,176
+delta = .9,1
+
+[BG car light]
+type = anim
+actionno = 3
+start = 0,176
+delta = .9,1
+
+[BG car A]
+type = anim
+ID = 4
+actionno = 4
+start = -90,169
+delta = .9,1
+
+[BG car B]
+type = anim
+ID = 5
+actionno = 5
+start = -90,169
+delta = .9,1
+
+[BG pole]
+type = normal
+spriteno = 6,0
+start = 0,170
+delta = .9,1
+mask = 1
+
+[BG light]
+type = anim
+actionno = 7
+start = 0,170
+delta = .9,1
+
+[BG parking lot]
+type = normal
+spriteno = 8,0
+start = 0,240
+delta = 1,1
+mask = 1
+
+[BGctrldef 4]
+CtrlID = 4
+looptime = 5000
+
+[BGctrl 4.1]
+type = VelSet
+time = 4000
+x = -1
+
+[BGctrl 4.2]
+type = PosSet
+time = 4000
+x = -10
+
+[BGctrldef 5]
+CtrlID = 5
+looptime = 5000
+
+[BGctrl 5.1]
+type = VelSet
+time = 0
+x = -1
+
+[BGctrl 5.2]
+type = PosSet
+time = 0
+x = -10
+
+[BGctrl 5.3]
+type = PosSet
+time = 1000
+x = -10
+
+[BGctrl 5.4]
+type = PosSet
+time = 2000
+x = -10
+
+[BGctrl 5.5]
+type = PosSet
+time = 3000
+x = -10
+
+[Begin action 1]
+
+0,-1, 0,0, 80
+1, 0, 0,0, 1
+1, 1, 0,0, 2
+1, 2, 0,0, 1
+1, 3, 0,0, 2
+1, 4, 0,0, 1
+1, 5, 0,0, 2
+1, 6, 0,0, 3
+1, 7, 0,0, 1
+1, 8, 0,0, 2
+1, 9, 0,0, 1
+1,10, 0,0, 1
+1,11, 0,0, 2
+1,12, 0,0, 1
+1,13, 0,0, 1
+1,14, 0,0, 4
+1,15, 0,0, 50
+
+[Begin action 2]
+
+2,0, 0,0, 11
+2,1, 0,0, 11
+2,2, 0,0, 11
+2,3, 0,0, 11
+2,4, 0,0, 11
+2,5, 0,0, 11
+2,6, 0,0, 11
+2,7, 0,0, 11
+
+[Begin action 3]
+
+0,-1, 0,0, 750
+3, 0, 0,0, 2
+3, 1, 0,0, 6
+3, 0, 0,0, 2
+3, 1, 0,0, 6
+3, 0, 0,0, 2
+
+[Begin action 4]
+
+4,0, 0,0, 11
+4,1, 0,0, 11
+4,2, 0,0, 11
+4,1, 0,0, 11
+4,3, 0,0, 11
+4,4, 0,0, 11
+4,5, 0,0, 11
+4,4, 0,0, 11
+4,0, 0,0, 11
+4,1, 0,0, 11
+4,2, 0,0, 11
+4,1, 0,0, 11
+4,6, 0,0, 11
+4,7, 0,0, 11
+4,8, 0,0, 11
+4,7, 0,0, 11
+
+[Begin action 5]
+
+5,0, 0,0, 11
+5,1, 0,0, 11
+5,2, 0,0, 11
+5,1, 0,0, 11
+5,3, 0,0, 11
+5,4, 0,0, 11
+5,5, 0,0, 11
+5,4, 0,0, 11
+5,0, 0,0, 11
+5,1, 0,0, 11
+5,2, 0,0, 11
+5,1, 0,0, 11
+5,6, 0,0, 11
+5,7, 0,0, 11
+5,8, 0,0, 11
+5,7, 0,0, 11
+
+[Begin action 7]
+
+7,0, 0,0, 1
+7,1, 0,0, 1

@@ -1,0 +1,101 @@
+                 ======================================================== 
+                 =     Oil Refinery Noche - Marvel Vs Street Fighter    =
+                 =                         CPS2                         =             
+                 ========================================================
+
+:-------------------------------------------------------
+[Info]
+;name = "MVSF - Oil Refinery"
+name = "N"
+Autor = NightWing (V.E.A.C.H)
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -80
+boundright = 125
+boundhigh = -150
+boundlow = 0
+verticalfollow = .5
+floortension = 0
+tension = 60
+zoomin = 1
+zoomout = 0.8
+
+[PlayerInfo]
+p1startx = -60
+p1starty = 0
+p1startz = 0
+p1facing = 1
+p2startx = 60
+p2starty = 0
+p2startz = 0
+p2facing = -1
+leftbound  = -1000
+rightbound = 1000
+topbound = 0
+botbound = 0
+
+[Scaling]
+topz     = 0       
+botz     = 50      
+topscale = 1       
+botscale = 1.2     
+
+[Bound]
+screenleft = 25
+screenright = 25
+
+[StageInfo]
+zoffset = 216
+autoturn = 1
+resetBG = 0
+
+[Shadow]
+color = 
+yscale = 0.15
+reflect = 0
+
+[Music]
+bgmusic = 
+bgvolume = 
+
+;--------------------------------------------------------
+[BGdef]
+spr = stages/mvsf-oilrefinery.sff
+debugbg = 0
+
+;--------------------------------------------------------
+;--------------------------------------------------------
+[BG Fondo] 
+type  = normal
+spriteno = 0, 1
+layerno = 0
+start = -300, -5
+delta = 0
+mask  = 0
+
+[BG Tanques] 
+type  = normal
+spriteno = 0, 0
+layerno = 0
+start = 0, 18
+delta = .30, 1
+mask = 1
+
+[BG Piso] 
+type  = normal
+spriteno = 0, 2
+start = 0, 165
+delta = .8, 1 
+xscale = 1, 1.33
+yscalestart = 100
+yscaledelta = 0
+mask = 1 
+
+[BG Piso2]
+type = parallax
+spriteno = 1, 0
+start = 0,0
+delta = .75,1
+xscale = 1,1.6

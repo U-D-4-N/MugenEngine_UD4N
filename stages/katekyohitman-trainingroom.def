@@ -1,0 +1,95 @@
+;|------------------------------|
+;|Nome: TrainingRoom            |
+;|Jogo: Katekyo HitMan Reborn   |
+;|Por: Godita                   |
+;|Creditos: DarkR               |
+;|Versão do mugen: RC3 e antiga |
+;|------------------------------|
+
+;--------------------------------------------------------
+[Info]
+;name = "Katekyo HitMan - Training Room"
+name = "."
+
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -47.5
+boundright = 47.5
+boundhigh = -200
+boundlow = -10
+verticalfollow = 0.5
+floortension = 0
+tension = 50
+zoomin = 1
+zoomout = 0.8
+
+;--------------------------------------------------------
+
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -70    
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+;--- Player 2 ---
+p2startx = 70        
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+leftbound  = -1000
+rightbound =  1000
+topbound  =  0
+botbound  =  0
+
+;--------------------------------------------------------
+[Scaling]
+topz     = 0  
+botz     = 50
+topscale = 1 
+botscale = 1.2
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 15
+screenright = 15
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 210
+autoturn = 1
+resetBG = 1
+
+;--------------------------------------------------------
+[Shadow]
+color = 92,92,92
+yscale = .3
+
+;--------------------------------------------------------
+[Music]
+bgmusic =
+bgvolume = 0
+
+;-------------------------------------
+[BGdef]
+spr = stages/katekyohitman-trainingroom.sff
+debugbg = 0
+
+;----------
+[BG Animação]
+type  = anim
+actionno = 1
+layerno = 0
+start = 0, 243
+delta = 1, 1
+mask = 0
+
+[Begin Action 1]
+0,0,0,0,10
+0,1,0,0,10
+0,2,0,0,10
+0,3,0,0,10

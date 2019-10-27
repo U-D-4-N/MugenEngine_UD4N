@@ -1,0 +1,186 @@
+;Showdown in the Park ao entardecer, ripado por DonRamon  
+;do jogo Marvel Super Heroes vs Street Fighter
+;Utilizando o emulador WinKawaks 1.38
+;cenário com visão aérea no super jump
+
+[Info]
+;name = "MVSF - Showdown in the Park at Noon"
+name = "O"
+author = "DonRamon" 
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -112
+boundright = 112
+boundhigh = -50
+boundlow = -10
+verticalfollow = .5 ; super pulo
+tension = 50
+zoomin = 1
+zoomout = 0.8
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound  = -1000
+rightbound =  1000
+topbound  =  0
+botbound  =  0
+
+[Scaling]
+topz = 0
+botz = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 215
+autoturn = 1
+resetBG = 0
+
+[Shadow]
+color = 240,240,240
+yscale = -.1
+
+[Music]
+bgmusic = sound/bgm.mid
+bgvolume = 0
+
+[BGdef]
+spr = stages/mvsf-showdownintheparkatnoon.sff
+
+[BG paisagem]
+type = normal
+spriteno = 3,0
+start = -256,-68
+delta = 0.43,0.285
+
+[BG árvores]
+type = normal
+spriteno = 2,0
+start = -320,-60
+delta = 0.71,0.635
+mask = 1
+
+[BG nash]
+type = anim
+actionno = 4
+start = -216,118
+delta = 0.71,0.635
+
+[BG roguegambit]
+type = anim
+actionno = 5
+start = 23,103
+delta = 0.71,0.635
+
+[BG rosie]
+type = anim
+actionno = 6
+start = 171,109
+delta = 0.71,0.635
+
+[BG folhas]
+type = anim
+actionno = 7
+start = -182,156
+delta = 0.71,0.635
+
+[BG água]
+type = anim
+actionno = 8
+start = 105,185
+delta = 0.71,0.635
+
+[BG ponte]
+type = normal
+spriteno = 1,0
+start = -384,182
+delta = 1,1
+mask = 1
+
+[BG tronco1]
+type = normal
+spriteno = 9,0
+start = -361,213
+delta = 1,.9
+layerno = 1
+mask = 1
+
+[BG tronco2]
+type = normal
+spriteno = 9,1
+start = -134,212
+delta = 1,.9
+layerno = 1
+mask = 1
+
+[BG tronco3]
+type = normal
+spriteno = 9,2
+start = 107,220
+delta = 1,.9
+layerno = 1
+mask = 1
+
+[BG tronco4]
+type = normal
+spriteno = 9,3
+start = 305,202
+delta = 1,.9
+layerno = 1
+mask = 1
+
+[Begin action 4];nash lendo o livro
+4,0, 0,0, 220
+4,1, 0,0, 6
+4,2, 0,0, 6
+4,3, 0,0, 6
+4,4, 0,0, 6
+4,5, 0,0, 6
+
+[Begin action 5];vampira e gambit conversando
+5,0, 0,0, 55
+5,1, 0,0, 110
+5,2, 0,0, 55
+5,3, 0,0, 27
+5,4, 0,0, 55
+5,5, 0,0, 82
+5,6, 0,0, 27
+5,7, 0,0, 14
+5,8, 0,0, 5
+5,9, 0,0, 5
+5,10, 0,0, 5
+5,11, 0,0, 6
+5,12, 0,0, 5
+5,13, 0,0, 5
+5,14, 0,0, 5
+
+[Begin action 6];rosie
+6,0, 0,0, 110
+6,1, 0,0, 109
+
+[Begin action 7];água se mexendo com as folhas
+7,0, 0,0, 27
+7,1, 0,0, 14
+7,2, 0,0, 27
+7,1, 0,0, 14
+
+[Begin action 8];água se mexendo
+8,0, 0,0, 27
+8,1, 0,0, 14
+8,2, 0,0, 27
+8,1, 0,0, 14

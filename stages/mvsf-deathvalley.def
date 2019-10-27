@@ -1,0 +1,221 @@
+;Death Valley, ripado por DonRamon  
+;do jogo Marvel Super Heroes vs Street Fighter
+;Utilizando o emulador WinKawaks 1.41
+;cenário com visão aérea no super jump
+
+[Info]
+;name = "MVSF - Death Valley"
+name = "J"
+author = "DonRamon" 
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -111.5
+boundright = 112
+boundhigh = -115
+boundlow = -10
+verticalfollow = .5
+tension = 50
+zoomin = 1
+zoomout = 0.8
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound  = -1000
+rightbound =  1000
+topbound  =  0
+botbound  =  0
+
+[Scaling]
+topz = 0
+botz = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 217
+autoturn = 1
+resetBG = 0
+
+[Shadow]
+color = 20,50,60
+yscale = .2
+
+[Music]
+bgmusic = sound/action.mid
+bgvolume = 0
+
+[BGdef]
+spr = stages/mvsf-deathvalley.sff
+debugbg = 1
+
+[BG céu]
+type = normal
+spriteno = 0,2
+delta = .355,.2
+start = -239,-46
+mask = 1
+
+[BG montanhas]
+type = normal
+spriteno = 0,1
+delta = .57,.465
+start = -287,-108
+mask = 1
+
+[BG Chão]
+type = normal
+spriteno = 0,0
+delta = 1,1
+start = -384,-231
+mask = 1
+
+[BG fogo]
+type = anim
+actionno = 1
+delta = 1,1
+start = -68,16
+
+[BG fera]
+type = anim
+actionno = 2
+delta = 1,1
+start = -123,145
+
+[BG blanka]
+type = anim
+actionno = 3
+delta = 1,1
+start = -47,151
+
+[Bg fogo2]
+type = anim
+actionno = 4
+delta = 1,1
+start = -50,-20
+
+[Begin Action 1]
+1,0, 0,0, 4
+1,1, 0,0, 3
+1,2, 0,0, 3
+1,3, 0,0, 4
+1,4, 0,0, 3
+1,5, 0,0, 4
+
+[Begin Action 2]
+2,4, 0,0, 123
+2,0, 0,0, 4
+2,5, 0,0, 92
+2,0, 0,0, 4
+2,4, 0,0, 123
+2,0, 0,0, 4
+2,5, 0,0, 92
+2,0, 0,0, 4
+2,4, 0,0, 123
+2,0, 0,0, 4
+2,5, 0,0, 92
+2,0, 0,0, 4
+2,1, 0,0, 5
+2,2, 0,0, 41
+2,3, 0,0, 5
+2,4, 0,0, 123
+2,0, 0,0, 4
+2,5, 0,0, 92
+2,0, 0,0, 4
+2,1, 0,0, 5
+2,2, 0,0, 41
+2,3, 0,0, 5
+2,4, 0,0, 123
+2,0, 0,0, 4
+2,5, 0,0, 92
+2,0, 0,0, 4
+2,4, 0,0, 123
+2,0, 0,0, 4
+2,5, 0,0, 92
+2,0, 0,0, 4
+2,4, 0,0, 123
+2,0, 0,0, 4
+2,5, 0,0, 92
+2,0, 0,0, 4
+2,4, 0,0, 123
+2,0, 0,0, 4
+2,5, 0,0, 92
+2,0, 0,0, 4
+
+[Begin Action 3]
+3,0, 0,0, 123
+3,1, 0,0, 5
+3,2, 0,0, 93
+3,0, 0,0, 4
+3,0, 0,0, 123
+3,1, 0,0, 5
+3,2, 0,0, 93
+3,0, 0,0, 4
+3,0, 0,0, 123
+3,1, 0,0, 5
+3,2, 0,0, 93
+3,0, 0,0, 4
+3,3, 0,0, 5
+3,4, 0,0, 40
+3,5, 0,0, 7
+3,0, 0,0, 123
+3,1, 0,0, 5
+3,2, 0,0, 93
+3,0, 0,0, 4
+3,3, 0,0, 5
+3,4, 0,0, 40
+3,5, 0,0, 7
+3,0, 0,0, 123
+3,1, 0,0, 5
+3,2, 0,0, 93
+3,0, 0,0, 4
+3,0, 0,0, 123
+3,1, 0,0, 5
+3,2, 0,0, 93
+3,0, 0,0, 4
+3,0, 0,0, 123
+3,1, 0,0, 5
+3,2, 0,0, 93
+3,0, 0,0, 4
+3,0, 0,0, 123
+3,1, 0,0, 5
+3,2, 0,0, 93
+3,0, 0,0, 4
+3,0, 0,0, 123
+3,1, 0,0, 5
+3,2, 0,0, 93
+3,0, 0,0, 4
+3,0, 0,0, 123
+3,1, 0,0, 5
+3,2, 0,0, 93
+3,0, 0,0, 4
+3,0, 0,0, 123
+3,1, 0,0, 5
+3,2, 0,0, 93
+3,0, 0,0, 4
+3,0, 0,0, 123
+3,1, 0,0, 5
+3,2, 0,0, 93
+3,0, 0,0, 4
+
+[Begin Action 4]
+4,4, 0,0, 3
+4,0, 0,0, 3
+4,1, 0,0, 3
+4,4, 0,0, 4
+4,2, 0,0, 4
+4,3, 0,0, 3

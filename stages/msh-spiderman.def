@@ -1,0 +1,1192 @@
+[Info]
+;name="MSH - Spiderman" 
+name = "?"
+autor= JC ; http://eternal.mgbr.net ; Libre de hacer lo que quieras con el escenario este 
+;stage quiero dedicarselo a D_Lumina y al gran creador del Nebula el Semi sin ellos este
+;stage jamas se hubiera podido realizar.
+
+[Camera]
+startx=0
+starty=0
+boundleft = -112
+boundright = 112
+boundhigh = -300
+floortension=0
+tension=60
+verticalfollow = .5
+boundlow = -10
+zoomin = 1
+zoomout = 0.8
+
+
+[PlayerInfo]
+p1startx=-90
+p1starty=0
+p1startz=0
+p1facing=1
+
+p2startx=90
+p2starty=0
+p2startz=0
+p2facing=-1
+
+leftbound=-1000
+rightbound=1000
+topbound=0
+botbound=0
+
+[Scaling]
+topz=0
+botz=50
+topscale=1
+botscale=1.2
+
+[Bound]
+screenleft=15
+screenright=15
+
+[StageInfo]
+zoffset=213
+autoturn=1
+resetBG = 0
+
+[Shadow]
+color = 32,32,32
+yscale = .2
+
+[Music]
+bgmusic= sound/spiderman_music.mp3
+bgvolume= 60
+
+[BGdef]
+spr=stages/msh-spiderman.sff
+DEBUGBG=0
+
+
+[BG A]
+type  = normal
+spriteno = 1,0
+start = 0, 0
+delta = .3632142857, 1
+mask = 1
+ID=1
+
+
+[BG B]
+type  = normal
+spriteno = 1,1
+start = 0, 0
+delta = .3632142857, 1
+mask = 1
+ID=1
+
+
+[BG C]
+type  = anim
+actionno = 1
+start = 0, 0
+delta = .3632142857, 1
+mask = 1
+ID=1
+
+
+[BG D]
+type  = normal
+spriteno = 3,6
+start = 0, 0
+delta = .3632142857, 1
+mask = 1
+ID=1
+
+[BG E]
+type  = anim
+actionno = 3
+start = 0, 0
+delta = .3632142857, 1
+mask = 1
+ID=1
+
+[BG F]
+type  = normal
+spriteno = 2,0
+start = 0, 42
+delta = .8132142857, 1
+mask = 1
+ID= 2
+
+
+
+[BG G]
+type  = normal
+spriteno = 2,0
+start = 0, -342
+delta = .8132142857, 1
+mask = 1
+ID= 2
+
+[BG H]
+type  = normal
+spriteno = 2,0
+start = 0, -726
+delta = .8132142857, 1
+mask = 1
+ID= 2
+
+[BG I]
+type  = anim
+actionno = 2
+start = 0, -1110
+delta = .8132142857, 1
+mask = 1
+ID= 2
+
+
+[BG J]
+type  = normal
+spriteno = 4,2
+start = 0, -1494
+delta = .8132142857, 1
+mask = 1
+ID= 2
+
+
+[BG K]
+type  = normal
+spriteno = 4,2
+start = 0, -1878
+delta = .8132142857, 1
+mask = 1
+ID= 2
+
+
+
+[BG L]
+type  = anim
+actionno = 32
+start = 0, -2262
+delta = .4132142857, 1
+mask = 1
+ID= 3
+
+[BG L]
+type  = anim
+actionno = 32
+start = -640, -2262
+delta = .4132142857, 1
+mask = 1
+ID= 3
+
+[BG L]
+type  = normal
+spriteno = 80,3
+start = 0, -2262
+delta = .4132142857, 1
+mask = 1
+ID= 3
+
+
+[BG L]
+type  = normal
+spriteno = 80,3
+start = -640, -2262
+delta = .4132142857, 1
+mask = 1
+ID= 3
+
+
+[BG M]
+type  = ani
+actionno = 29
+mask = 1
+start = 300,180
+delta = .1932142857, 1
+sin.y = -8,512
+ID = 15
+
+[BG N]
+type  = normal
+spriteno = 50,4
+start = 0, -2262
+delta = .4132142857, 1
+mask = 1
+ID= 3
+
+[BG O]
+type  = normal
+spriteno = 4,2
+start = 0, -3414
+delta = .8132142857, 1
+mask = 1
+ID= 2
+
+[BG P]
+type  = normal
+spriteno = 4,2
+start = 0, -3798
+delta = .8132142857, 1
+mask = 1
+ID= 2
+
+
+[BG P]
+type  = normal
+spriteno = 4,2
+start = 0, -4182
+delta = .8132142857, 1
+mask = 1
+ID= 2
+
+[BG P]
+type  = normal
+spriteno = 4,2
+start = -765, -3798
+delta = .8132142857, 1
+mask = 1
+ID= 2
+
+
+[BG P]
+type  = normal
+spriteno = 4,2
+start = -765, -4182
+delta = .8132142857, 1
+mask = 1
+ID= 2
+
+
+[BG Q]
+type  = normal
+spriteno = 50,1
+start = 0, -2262
+delta = .8132142857, 1
+mask = 1
+ID= 2
+
+
+
+[BG R]
+type  = ani
+actionno = 13
+mask = 1
+start = 0, -2262
+delta = .8132142857, 1
+ID= 2
+
+
+[BG S]
+type  = ani
+actionno = 14
+mask = 1
+start = 0, -2262
+delta = .8132142857, 1
+ID= 2
+
+
+[BG T]
+type  = ani
+actionno = 15
+mask = 1
+start = 0, -2262
+delta = .8132142857, 1
+ID= 2
+
+
+[BG U]
+type  = ani
+actionno = 16
+mask = 1
+start = 0, -2262
+delta = .8132142857, 1
+ID= 2
+
+[BG W]
+type  = normal
+spriteno = 500,7
+mask = 1
+start = 0, -2262
+delta = .8132142857, 1
+ID= 2
+
+[BG Y]
+type  = ani
+actionno = 17
+mask = 1
+start = 0, -2262
+delta = .8132142857, 1
+ID= 2
+
+[BG Z]
+type  = ani
+actionno = 18
+mask = 1
+start = 0, -2262
+delta = .8132142857, 1
+ID= 2
+
+[BG ZA]
+type  = ani
+actionno = 19
+mask = 1
+start = 0, -2262
+delta = .8132142857, 1
+ID= 2
+
+[BG ZB]
+type  = normal
+spriteno= 500,12
+mask = 1
+start = 0, -2262
+delta = .8132142857, 1
+ID= 2
+
+
+[BG ZC]
+type  = ani
+actionno = 20
+mask = 1
+start = 0, -2262
+delta = .8132142857, 1
+ID= 2
+
+
+[BG ZD]
+type  = ani
+actionno = 24
+mask = 1
+start = 0, -2262
+delta = .8132142857, 1
+ID= 2
+
+
+[BG ZE]
+type  = ani
+actionno = 25
+mask = 1
+start = 0, -2262
+delta = .8132142857, 1
+ID= 2
+
+[BG ZF]
+type  = ani
+actionno = 26
+mask = 1
+start = 0, -2262
+delta = .8132142857, 1
+ID= 2
+
+
+[BG ZG]
+type  = ani
+actionno = 27
+mask = 1
+start = 0, -2262
+delta = .8132142857, 1
+ID= 2
+
+
+[BG ZH]
+type  = ani
+actionno = 28
+mask = 1
+start = 0, -2262
+delta = .8132142857, 1
+ID= 2
+
+[BG ZI]
+type  = normal
+spriteno= 500,4
+mask = 1
+start = 0, -2262
+delta = .8132142857, 1
+ID= 2
+
+[BG ZJ]
+type  = normal
+spriteno= 500,19
+mask = 1
+start = 0, -2262
+delta = .8132142857, 1
+ID= 2
+
+[BG ZK]
+type  = parallax
+spriteno = 100,0
+start = 0, -44
+delta = .7232142857, 1
+xscale = 1, 1.679012345
+mask = 1
+ID = 6
+
+
+[BG ZK]
+type  = NORMAL
+spriteno = 100,1
+start = 0, -44
+delta = 1.1512142857, 1
+mask = 1
+ID = 6
+
+
+[BG ZL]
+type  = parallax
+spriteno = 0,1
+start = 0, -44
+delta = .7232142857, 1
+xscale = 1, 1.679012345
+mask = 1
+ID = 7
+
+
+
+[BG ZL]
+type  = normal
+spriteno = 100,2
+start = 0, -44
+delta = 1.1512142857, 1
+mask = 1
+ID = 7
+
+
+[BG ZM]
+type  = parallax
+spriteno = 0,2
+start = 0, -44
+delta = .7232142857, 1
+xscale = 1, 1.679012345
+mask = 1
+ID = 8
+
+
+[BG ZL]
+type  = normal
+spriteno = 100,3
+start = 0, -44
+delta = 1.1512142857, 1
+mask = 1
+ID = 8
+
+[BG ZO]
+type  = parallax
+spriteno = 0,3
+start = 0, -44
+delta = .7232142857, 1
+xscale = 1, 1.679012345
+mask = 1
+ID = 9
+
+
+[BG ZL]
+type  = normal
+spriteno = 100,4
+start = 0, -44
+delta = 1.1512142857, 1
+mask = 1
+ID = 9
+
+
+[BG ZP]
+type  = parallax
+spriteno = 0,4
+start = 0, -44
+delta = .7232142857, 1
+xscale = 1, 1.679012345
+mask = 1
+ID = 10
+
+
+[BG ZL]
+type  = normal
+spriteno = 100,5
+start = 0, -44
+delta = 1.1512142857, 1
+mask = 1
+ID = 10
+
+[BG ZR]
+type=anim
+actionno = 23
+layerno=0
+start=0,-39
+delta = .7232142857, 1
+mask = 1
+ID = 16
+
+
+[BG ZS]
+type=anim
+actionno = 22
+layerno=0
+start=0,-39
+delta = .7232142857, 1
+mask = 1
+ID = 16
+
+
+[BG ZT]
+type=anim
+actionno = 30
+layerno=0
+start=0,-39
+delta = .7232142857, 1
+mask = 1
+ID = 17
+
+
+[BG ZU]
+type=anim
+actionno = 31
+layerno=0
+start=0,-39
+delta = .7232142857, 1
+mask = 1
+ID = 17
+
+
+[BG ZV]
+type=normal
+spriteno = 8,0
+layerno=0
+start=0,-39
+delta = .7232142857, 1
+mask = 1
+ID = 18
+
+
+[BG ZW]
+type=normal
+spriteno = 9,0
+layerno=0
+start=0,-39
+delta = .7232142857, 1
+mask = 1
+ID = 18
+
+[BG ZY]
+type=anim
+actionno = 11
+layerno=1
+start=0,-39
+delta = 1.1532142857, 1
+mask = 1
+ID=11
+
+[BG ZZ]
+type=anim
+actionno = 10
+layerno=1
+start=0,-39
+delta = 1.1532142857, 1
+mask = 1
+ID=12
+
+
+
+
+; BG CONTROLS
+[BGCtrlDef 1]
+CtrlID = 1
+
+[BGCtrl 1.1] 
+type = Enable
+time = 0,0, -1
+value = 0
+
+[BGCtrl 1.2] 
+type = Enable
+time = 0
+value = 1
+
+[BGCtrl 2.2] 
+type = Posadd
+time = 0
+Y= 0
+X = 0
+
+[BGCtrl 3.2] 
+type = Velset
+time = 7
+;time = 7,8,8
+Y= .14
+X= 0
+
+
+[BGCtrl 4.2] 
+type = Velset
+time = 7300
+;time = 7,8,8
+Y= 0
+X= 0
+
+[BGCtrlDef 2]
+CtrlID = 2
+
+[BGCtrl 2.1]
+type = Enable
+time = 0,0, -1
+value = 0
+
+[BGCtrl 2.2] 
+type = Enable
+time = 0
+value = 1
+
+[BGCtrl 2.3] 
+type = Posadd
+time = 0
+Y= 0
+
+[BGCtrl 2.3] 
+type = Velset
+time = 1
+;time = 1,2,2
+Y = .54
+
+
+[BGCtrl 2.3] 
+type = Velset
+time = 6300
+;time = 1,2,2
+Y = .54
+
+[BGCtrl 2.2] 
+type = Velset
+time = 7170
+;time = 7,8,8
+Y= 0
+X= 0
+
+[BGCtrl 17.4] 
+type = Velset
+time = 7173
+x = .3
+y = 0
+
+[BGCtrl 17.4] 
+type = Velset
+time = 8440
+x = 0
+y = 0
+
+[BGCtrlDef 3]
+CtrlID = 3
+
+[BGCtrl 3.1] 
+type = Enable
+time = 0,0, -1
+value = 0
+
+[BGCtrl 3.2] 
+type = Enable
+time = 0
+value = 1
+
+[BGCtrl 3.3] 
+type = Posadd
+time = 0
+Y= 0
+
+[BGCtrl 3.4] 
+type = Velset
+time = 1
+;time = 1,2,2
+Y = .54
+
+[BGCtrl 3.5] 
+type = Velset
+time = 6300
+Y = .18
+
+[BGCtrl 3.6] 
+type = Velset
+time = 7170
+;time = 7,8,8
+Y= 0
+X= 0
+
+
+[BGCtrl 17.4] 
+type = Velset
+time = 7173
+x = .5
+y = 0
+
+[BGCtrl 17.4] 
+type = Velset
+time = 8440
+x = 0
+y = 0
+
+
+[BGCtrlDef 4]
+looptime = -1
+CtrlID = 4
+
+[BGCtrl 4.1] 
+type = Enable
+time = 0,0, -1
+value = 0
+
+[BGCtrl 4.2] 
+type = Enable
+time = 0
+value = 1
+
+[BGCtrl 4.3] 
+type = Enable
+time = 2000
+value = 0
+
+
+[BGCtrlDef 6] 
+looptime = -1
+CtrlID = 6
+
+[BGCtrl 6.1] 
+type = Enable
+time = 0,0, -1
+value = 0
+
+[BGCtrl 6.2] 
+type = Enable
+time = 0
+value = 1
+
+
+[BGCtrl 6.3] 
+type = Enable
+time = 2097
+value = 0 
+
+
+[BGCtrlDef 7]
+looptime = -1
+CtrlID = 7
+
+[BGCtrl 7.1] 
+type = Enable
+time = 0,0, -1
+value = 0
+
+[BGCtrl 7.2] 
+type = Enable
+time = 0
+value = 0
+
+
+[BGCtrl 7.3] 
+type = Enable
+time = 2097
+value = 1
+
+[BGCtrl 7.4] 
+type = Enable
+time = 2110
+value = 0
+
+[BGCtrlDef 8]
+looptime = -1
+CtrlID = 8
+
+[BGCtrl 8.1] 
+type = Enable
+time = 0,0, -1
+value = 0
+
+[BGCtrl 8.2] 
+type = Enable
+time = 0
+value = 0
+
+[BGCtrl 8.3] 
+type = Enable
+time =2110
+value = 1
+
+[BGCtrl 8.4] 
+type = Enable
+time = 2123
+value = 0
+
+[BGCtrlDef 9]
+looptime = -1
+CtrlID = 9
+
+[BGCtrl 9.1] 
+type = Enable
+time = 0,0, -1
+value = 0
+
+[BGCtrl 9.2] 
+type = Enable
+time = 0
+value = 0
+
+[BGCtrl 9.3] 
+type = Enable
+time = 2123
+value = 1
+
+[BGCtrl 9.4] 
+type = Enable
+time = 2136
+value = 0
+
+[BGCtrlDef 10]
+looptime = -1
+CtrlID = 10
+
+[BGCtrl 10.1] 
+type = Enable
+time = 0,0, -1
+value = 0
+
+[BGCtrl 10.2]
+type = Enable
+time = 0
+value = 0
+
+[BGCtrl 10.3] 
+type = Enable
+time = 2136
+value = 1
+
+
+[BGCtrlDef 11]
+looptime = -1
+CtrlID = 11
+
+[BGCtrl 11.1] 
+type = Enable
+time = 0,0, -1
+value = 0
+
+[BGCtrl 11.2]
+type = Enable
+time = 0
+value = 1
+
+
+[BGCtrl 11.3]
+type = Velset
+time = 228
+x = -6
+y = -8
+
+
+[BGCtrl 11.4] 
+type = Enable
+time = 300
+value =0
+
+
+[BGCtrlDef 12]
+looptime = -1
+CtrlID = 12
+
+[BGCtrl 12.1] 
+type = Enable
+time = 0,0, -1
+value = 0
+
+[BGCtrl 12.2]
+type = Enable
+time = 0
+value = 1
+
+
+[BGCtrl 12.2]
+type = Velset
+time = 228
+x = 6
+y = -8
+
+;
+[BGCtrlDef 15]
+CtrlID = 15
+
+[BGCtrl 15.1] ; Orden de que se active je je esto no viene en mugen
+type = Enable
+time = 0,0, -1
+value = 0
+
+[BGCtrl 15.2] 
+type = Enable
+time = 0
+value = 0
+
+[BGCtrl 15.3] 
+type = Enable
+time = 7180
+value = 1
+
+
+[BGCtrl 15.4] 
+type = Velset
+time = 7180
+x=-.7
+y = 0
+
+
+[BGCtrl 15.5] 
+type = Velset
+time = 7500
+x=0
+y = 0
+
+;
+[BGCtrlDef]
+CtrlID = 16
+
+[BGCtrl 16.1] 
+type = Enable
+time = 0,0, -1
+value = 0
+
+[BGCtrl 16.2] 
+type = Enable
+time = 0
+value = 1
+
+[BGCtrl 16.3] 
+type = Enable
+time = 2127
+value = 0
+
+[BGCtrlDef]
+CtrlID = 17
+
+[BGCtrl 17.1]
+type = Enable
+time = 0,0, -1
+value = 0
+
+[BGCtrl 17.2] 
+type = Enable
+time = 0
+value = 0
+
+[BGCtrl 17.3] 
+type = Enable
+time = 2127
+value = 1
+
+
+[BGCtrl 17.4] 
+type = Enable
+time = 7167
+value = 0
+
+
+[BGCtrlDef 18] 
+looptime = -1
+CtrlID = 18
+
+[BGCtrl 18.1] 
+type = Enable
+time = 0,0, -1
+value = 0
+
+[BGCtrl 18.2] 
+type = Enable
+time = 0
+value = 0
+
+
+[BGCtrl 18.3] 
+type = Enable
+time = 7167
+value = 1
+
+[BGCtrlDef 18] 
+looptime = -1
+CtrlID = 20
+
+[BGCtrl 18.1] 
+type = Enable
+time = 0,0, -1
+value = 0
+
+[BGCtrl 18.2] 
+type = Enable
+time = 0
+value = 0
+
+[BGCtrl 18.3] 
+type = Enable
+time = 7168
+value = 1
+
+
+[BGCtrl 17.4] 
+type = Velset
+time = 7170
+x = .5
+y = 0
+
+
+
+[Begin Action 1]
+-1,0,0,0,2102
+3,0,0,0,11
+3,1,0,0,4
+3,2,0,0,15
+3,3,0,0,15
+loopstart
+3,5,0,0,15
+
+[Begin Action 2]
+2,0,0,0,2105
+4,0,0,0,13
+4,1,0,0,13
+loopstart
+4,2,0,0,13
+
+
+
+[Begin Action 3]
+-1,0,0,0,2105
+3,0,0,0,11
+3,1,0,0,4
+3,2,0,0,15
+3,3,0,0,15
+3,4,0,0,15
+loopstart
+-1,0,0,0,13
+5,0,0,0,17
+
+
+
+[Begin Action 11]
+40,5,0,0,200
+40,6,0,0,4
+40,7,0,0,2
+40,9,0,0,2
+40,11,0,0,2
+40,13,0,0,2
+40,16,0,0,2
+40,18,0,0,2
+40,20,0,0,2
+40,22,0,0,2
+40,24,0,0,2
+40,26,0,0,2
+40,28,0,0,2
+40,30,0,0,2
+loopstart
+40,32,0,0,2
+
+
+[Begin Action 10]
+40,5,0,0,200
+40,6,0,0,4
+40,8,0,0,2
+40,10,0,0,2
+40,12,0,0,2
+40,14,0,0,2
+40,17,0,0,2
+
+
+40,19,0,0,2
+40,21,0,0,2
+40,23,0,0,2
+40,25,0,0,2
+40,27,0,0,2
+40,29,0,0,2
+40,31,0,0,2
+loopstart
+40,33,0,0,2
+
+
+[Begin Action 13]
+500,0,0,0,15
+500,1,0,0,15
+
+[Begin Action 14]
+500,2,0,0,15
+500,3,0,0,15
+
+[Begin Action 15]
+500,5,0,0,7
+500,6,0,0,7
+
+[Begin Action 16]
+500,8,0,0,13
+500,9,0,0,13
+
+[Begin Action 17]
+500,10,0,0,10
+500,11,0,0,10
+
+[Begin Action 18]
+500,13,0,0,8
+500,14,0,0,8
+
+[Begin Action 19]
+500,15,0,0,15
+500,16,0,0,100
+
+[Begin Action 20]
+500,17,0,0,15
+500,18,0,0,15
+
+
+
+[Begin Action 22]
+7,0,0,0,4
+7,1,0,0,4
+7,2,0,0,4
+7,3,0,0,4
+
+[Begin Action 23]
+6,0,0,0,4
+6,1,0,0,4
+6,2,0,0,4
+6,3,0,0,4
+
+[Begin Action 24]
+600,1,0,0,13
+600,2,0,0,13
+
+
+[Begin Action 25]
+600,3,0,0,13
+600,4,0,0,13
+
+[Begin Action 26]
+600,5,0,0,14
+600,6,0,0,16
+
+[Begin Action 27]
+600,7,0,0,15
+600,8,0,0,15
+
+
+[Begin Action 28]
+600,9,0,0,15
+600,10,0,0,15
+
+[Begin Action 29]
+700,0,0,0,1
+700,1,0,0,1
+700,2,0,0,1
+700,3,0,0,1
+
+
+[Begin Action 30]
+9,0,0,0,4
+9,1,0,0,4
+9,2,0,0,4
+9,3,0,0,4
+
+[Begin Action 31]
+8,0,0,0,4
+8,1,0,0,4
+8,2,0,0,4
+8,3,0,0,4
+
+
+[Begin Action 32]
+80,0,0,0,2
+80,1,0,0,2
+80,2,0,0,3
+80,1,0,0,2
+

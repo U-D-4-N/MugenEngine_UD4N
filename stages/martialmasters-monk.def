@@ -1,0 +1,109 @@
+[Info]
+;name 		= "Martial Masters - Monk"
+name = "2"
+author 		= "kyoman"
+
+[Camera]
+startx 		= 0
+starty 		= 0
+boundleft 	= -170
+boundright 	= 195
+boundhigh 	= -20
+boundlow 	= -5
+tension 	= 50
+verticalfollow 	= .5
+floortension 	= 90
+zoomin = 1
+zoomout = 0.8
+
+[PlayerInfo]
+p1startx 	= -70
+p1starty 	= 0
+p1startz 	= 0
+p1facing 	= 1
+p2startx 	= 70
+p2starty 	= 0
+p2startz 	= 0
+p2facing 	= -1
+leftbound 	= -1000
+rightbound 	= 1000
+topbound  	= 0
+botbound  	= 0
+
+[Bound]
+screenleft 	= 15
+screenright 	= 15
+
+[StageInfo]
+zoffset 	= 215
+autoturn 	= 1
+resetBG 	= 0
+Hires		= 0
+
+[Scaling]
+topz     	= 0
+botz     	= 50
+topscale 	= 1
+botscale 	= 1.2
+
+[Shadow]
+color 		= 0,0,0
+yscale 		= .2
+
+[Music]
+bgmusic 	= 
+bgvolume 	= 255
+
+[BGdef]
+spr 		= stages/martialmasters-monk.sff
+debugbg 	= 0
+
+
+[BG image]; background
+type  		= normal
+mask		= 0
+spriteno 	= 0, 1
+start 		= -500,-90 
+delta 		= 1,1
+
+
+[BG image];background
+type  		= anim
+mask		= 1
+actionno 	= 1
+
+[Begin Action 1]
+0, 2, -500, -90, 120
+0, 1, -500, -90, 15
+0, 2, -500, -90, 120
+0, 3, -500, -90, 15
+0, 2, -500, -90, 120
+0, 4, -500, -90, 15
+0, 2, -500, -90, 120
+0, 1, -500, -90, 15
+0, 2, -500, -90, 60
+0, 1, -500, -90, 15
+0, 2, -500, -90, 240
+0, 1, -500, -90, 120
+0, 3, -500, -90, 15
+0, 2, -500, -90, 15
+0, 3, -500, -90, 15
+0, 2, -500, -90, 120
+0, 4, -500, -90, 15
+
+[BG image];arbre
+type  		= anim
+mask		= 0
+actionno 	= 2
+
+[Begin Action 2]
+1,  992, 100, 22, 10
+1, 1013, 100, 22, 15
+1, 1014, 100, 22, 20
+1, 1019, 100, 22, 10
+1,  992, 100, 22, 15
+1, 1014, 100, 22, 20
+1, 1019, 100, 22, 10
+1,  992, 100, 22, 15
+1, 1014, 100, 22, 20
+
