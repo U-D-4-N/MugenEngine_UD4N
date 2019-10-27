@@ -1,0 +1,160 @@
+                 ======================================================== 
+                 =  Escenario de Tormenta - X-Men Children of the atom  =
+                 =                      CPS2                            =             
+                 ========================================================
+
+:-------------------------------------------------------
+[Info]
+;Name = "XMCOTA - On The Blackbird"
+name = "{"
+Autor = NightWing (V.E.A.C.H)
+
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -111.5
+boundright = 111.5
+boundhigh = -150
+boundlow = 0
+verticalfollow = 0.6
+tension = 60
+zoomin = 1
+zoomout = 0.8
+
+[PlayerInfo]
+p1startx = -80
+p1starty = 0
+p1startz = 0
+p1facing = 1
+p2startx = 80
+p2starty = 0
+p2startz = 0
+p2facing = -1
+leftbound  = -1000
+rightbound = 1000
+topbound = 0
+botbound = 0
+
+[Scaling]
+topz     = 0       
+botz     = 50      
+topscale = 1       
+botscale = 1.2     
+
+[Bound]
+screenleft = 25
+screenright = 25
+
+[StageInfo]
+zoffset = 215
+autoturn = 1
+resetBG = 0
+
+[Shadow]
+color = 128,128,128  
+yscale = 0.2
+reflect = 0
+
+[Music]
+bgmusic = sound/Tormenta.mp3
+bgvolume = 255
+
+;--------------------------------------------------------
+[BGdef]
+spr = stages/xmcota-ontheblackbird.sff
+debugbg = 0
+
+;--------------------------------------------------------
+;--------------------------------------------------------
+[BG Cielo] 
+type  = normal
+spriteno = 0, 1
+layerno = 0
+start = -300, -5
+delta = 0,.5
+sin.y = 10,400
+mask  = 1
+
+[BG Olas]
+type = anim
+actionno = 1
+start = 0,-4
+delta = .52,.7.8
+mask = 1
+
+[Begin action 1]
+2,0,0,0,400
+2,1,0,0,6
+2,2,0,0,6
+2,3,0,0,6
+2,4,0,0,6
+2,5,0,0,6
+2,6,0,0,6
+2,7,0,0,6
+2,8,0,0,8
+2,9,0,0,8
+2,10,0,0,8
+2,12,0,0,6
+2,13,0,0,6
+2,14,0,0,8
+2,15,0,0,8
+2,16,0,0,8
+2,17,0,0,6
+2,18,0,0,6
+2,19,0,0,6
+2,20,0,0,6
+
+[BG puerto] 
+type  = normal
+spriteno = 0, 0
+layerno = 0
+start = 0, 18
+delta = .52,.7.8
+mask = 1
+
+[BG Helicoptero]
+type = anim
+actionno = 3
+start = -1200,10
+delta = .6,.6
+tile = 1,0
+tilespacing = 20000,0
+velocity = 1, 0
+sin.y = 20,700
+mask = 1
+
+[Begin action 3]
+4,0,0,0,1
+4,1,0,0,1
+4,2,0,0,1
+4,3,0,0,1
+4,4,0,0,1
+4,5,0,0,1
+4,6,0,0,1
+4,7,0,0,1
+
+[BG AveNegra] 
+type  = normal
+spriteno = 0, 2
+start = 0, 165
+delta = 1, 1 
+xscale = 1, 1.33
+yscalestart = 100
+yscaledelta = 0
+mask = 1 
+
+[BG Banderas]
+type  = anim
+actionno = 2
+layerno = 0
+start = 150, 190
+delta = .52,.7.8
+mask = 1
+
+[Begin Action 2]
+3,0, 0,0, 10
+3,1, 0,0, 10
+3,2, 0,0, 10
+3,3, 0,0, 10
+3,4, 0,0, 10

@@ -1,0 +1,136 @@
+; Stage informations :
+; -----------------
+; From the game: 	Street Fighter III - Second Impact [Giant Attack]
+; Name:			Munich (Hugo stage)
+; Version:		0.1
+
+; Conversion Information :	
+; ----------------------
+; by:			Dark Saviour
+; from:			Capcom System 3 Emulator 0.1 TEST 2
+; with:			MCM 1.5 & sprmaker 0.97a
+; date:			29/06/2007
+
+; Contacts :
+; --------
+; E-mail: 		darksaviour77@hotmail.com
+; Site:			http://www.ds-arena.fr.st
+
+; Please don't link these files ;)
+
+[Info]
+;name = "SF3 - Munich" ; Hugo stage
+name = "b"
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -108
+boundright = 108
+boundhigh = -227
+boundlow = 0
+verticalfollow = 1
+floortension = 88
+tension = 60
+zoomin = 1
+zoomout = 0.8
+
+;--------------------------------------------------------
+[PlayerInfo]
+p1startx = -80
+p1starty = 0
+p1startz = 0
+p1facing = 1
+p2startx = 80
+p2starty = 0
+p2startz = 0
+p2facing = -1
+leftbound  = -1000
+rightbound =  1000
+topbound  =  0
+botbound  =  0
+
+;--------------------------------------------------------
+[Scaling]
+topz = 0       
+botz = 50      
+topscale = 1       
+botscale = 1.2     
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 24
+screenright = 24
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 222
+autoturn = 1
+resetBG = 0
+
+;--------------------------------------------------------
+[Shadow]
+;color = 127, 127, 127
+yscale = .3
+reflect = 0
+
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/sf3si-hugo.mp3
+bgvolume = 255
+
+;--------------------------------------------------------
+[BGdef]
+spr = stages/sf3-munich.sff
+debugbg = 1
+
+;--------------------------------------------------------
+;--------------------------------------------------------
+
+[Bg 0]
+type = normal
+spriteno = 0, 0
+start = 0, 0
+delta = .787037, .594713
+
+[Bg 1a]
+type = normal
+spriteno = 1, 0
+start = 0, 0
+delta = 1, 1
+mask = 1
+
+[Bg 1b]
+type = normal
+spriteno = 1, 1
+start = 0, 0
+delta = 1, 1
+mask = 1
+
+[Bg 1c]
+type = normal
+spriteno = 1, 2
+start = 0, 0
+delta = 1, 1
+mask = 1
+
+[Bg 1d]
+type = normal
+spriteno = 1, 3
+start = 0, 0
+delta = 1, 1
+mask = 1
+
+[Bg 1e]
+type = normal
+spriteno = 1, 4
+start = 0, 0
+delta = 1, 1
+mask = 1
+
+[Bg 1f]
+type = normal
+spriteno = 1, 5
+start = 0, 0
+delta = 1, 1
+mask = 1

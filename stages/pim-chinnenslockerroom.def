@@ -1,0 +1,97 @@
+;--------------------------------------------------------
+;LYNN STAGE MATRIMELEE BY CIRIO
+;--------------------------------------------------------
+;e-mail:  cirio@rome.com
+;website: cirio.cjb.net
+;--------------------------------------------------------
+[Info]
+ ;Name of the stage.
+;name = "PIM - Chinnen's locker room"
+name = "S"
+
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -76
+boundright = 76
+boundhigh = -30
+boundlow = -10
+verticalfollow = .3
+floortension = 0
+tension = 60
+zoomin = 1
+zoomout = 0.8
+
+
+;--------------------------------------------------------
+[PlayerInfo]
+p1startx = -70          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1startz = 0            ;Starting z coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+
+;--- Player 2 ---
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+topbound  =  0     ;Top bound (z-movement)
+botbound  =  0     ;Bottom bound
+
+;--------------------------------------------------------
+[Scaling]
+topz     = 0       
+botz     = 50      
+topscale = 1       
+botscale = 1.2     
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 15    ;Dist from left of screen that player can move to
+screenright = 15   ;Right edge
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 215
+autoturn = 1
+resetBG = 0
+
+;--------------------------------------------------------
+[Shadow]
+color = 70,70,70
+yscale = 0.9
+reflect = 0
+
+;--------------------------------------------------------
+[Music]
+bgmusic = 
+bgvolume = 0
+
+[BGdef]
+spr = stages/pim-chinnenslockerroom.sff
+debugbg = 0
+
+
+[BG 1]
+type  = normal
+spriteno = 0,1              
+start = -304, -96
+mask = 0
+
+[BG 2]
+type  = anim
+actionno = 1          
+start = 63, 174
+mask = 0
+;----------
+
+[Begin action 1]
+1,3, 0,0, 27
+1,2, 0,0, 9
+1,1, 0,0, 27
+1,2, 0,0, 9

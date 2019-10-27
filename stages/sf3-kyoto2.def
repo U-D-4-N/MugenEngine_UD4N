@@ -1,0 +1,158 @@
+; Stage informations :
+; -----------------
+; From the game: 	Street Fighter III - Second Impact [Giant Attack]
+; Name:			Kyoto (Ibuki stage)
+; Version:		0.1
+
+; Conversion Information :	
+; ----------------------
+; by:			Dark Saviour
+; from:			Capcom System 3 Emulator 0.1 TEST & Mame32 0.116u3b
+; with:			MCM 1.5 & sprmaker 0.97a
+; date:			29/06/2007
+; update:		01/07/2007 (lights animation fixed thanks to Dany-the-Dog's feedback)
+; 			04/07/2007 (whole stage recentred)
+
+; Contacts :
+; --------
+; E-mail: 		darksaviour77@hotmail.com
+; Site:			http://www.ds-arena.fr.st
+
+; Please don't link these files ;)
+
+[Info]
+;name = "SF3 - Kyoto 2" ; Ibuki stage
+name = "`"
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -127 ; -252
+boundright = 125 ;  252
+boundhigh = -272
+boundlow = 0
+verticalfollow = 1
+floortension = 88
+tension = 60
+zoomin = 1
+zoomout = 0.8
+
+;--------------------------------------------------------
+[PlayerInfo]
+p1startx = -80
+p1starty = 0
+p1startz = 0
+p1facing = 1
+p2startx = 80
+p2starty = 0
+p2startz = 0
+p2facing = -1
+leftbound = -1000
+rightbound = 1000
+topbound = 0
+botbound = 0
+
+;--------------------------------------------------------
+[Scaling]
+topz = 0       
+botz = 50      
+topscale = 1       
+botscale = 1.2     
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 24
+screenright = 24
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 222
+autoturn = 1
+resetBG = 0
+
+;--------------------------------------------------------
+[Shadow]
+;color = 127, 127, 127
+yscale = .3
+reflect = 0
+
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/sf3si-ibuki.mp3
+bgvolume = 255
+
+;--------------------------------------------------------
+[BGdef]
+spr = stages/sf3-kyoto2.sff
+debugbg = 0
+
+;--------------------------------------------------------
+;--------------------------------------------------------
+
+[Bg 0]
+type = normal
+spriteno = 0, 0
+start = 0, 0
+delta = .345238, .602941
+
+[Bg 1]
+type = normal
+spriteno = 1, 0
+start = 0, 0
+delta = .674603, 1
+mask = 1
+
+[Bg 2]
+type = anim
+actionno = 2
+start = 0, 0
+delta = .674603, 1
+
+[Begin Action 2]
+2,0, 0,0, 4
+2,1, 0,0, 4
+2,2, 0,0, 4
+2,3, 0,0, 4
+2,4, 0,0, 4
+2,5, 0,0, 4
+
+[Bg 3]
+type = normal
+spriteno = 3, 0
+start = 0, 0
+delta = 1, 1
+mask = 1
+
+[Bg 4]
+type = anim
+actionno = 4
+start = 0, 0
+delta = 1, 1
+
+[Begin Action 4]
+4,0, 0,0, 4
+4,1, 0,0, 4
+4,0, 0,0, 4
+4,1, 0,0, 4
+4,0, 0,0, 5
+4,1, 0,0, 6
+4,0, 0,0, 5
+4,1, 0,0, 4
+4,0, 0,0, 4
+4,1, 0,0, 4
+4,0, 0,0, 4
+4,1, 0,0, 4
+4,0, 0,0, 3
+4,1, 0,0, 3
+4,0, 0,0, 2
+4,1, 0,0, 3
+4,0, 0,0, 4
+4,1, 0,0, 5
+4,0, 0,0, 4
+4,1, 0,0, 4
+4,0, 0,0, 4
+4,1, 0,0, 4
+4,0, 0,0, 2
+4,1, 0,0, 3
+4,0, 0,0, 4
+4,1, 0,0, 5

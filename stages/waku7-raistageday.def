@@ -1,0 +1,139 @@
+; RAI STAGE1 - DIA by Basara-kun
+; http://basara.studiosmh.com/
+;=========================================================
+;basara, al stage le acomode los sprites y cambie parte del code
+;ahora chekalo y arregla el pedazo k falta abajo, espero k no te
+;molesten las modificaciones k le hice y busca los tiempos precisos
+;de las animaciones para darle un mejor efecto, lo otro lo le des 
+;a nada "delta" ya k este stage no lo rekiere para nada y lo uniko 
+;k saces es un efecto no muy bueno k digamos, bueno bro solo eso y 
+;suerte con este stage je je...
+;
+;adzeer
+;--------------------------------------------------------
+[Info]
+;name = "WAKU 7 - Rai Stage - Day"
+name = "w"
+author = "Basara-kun"
+
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+
+boundleft = -80
+boundright = 80
+
+boundhigh = -20
+boundlow = -10
+
+verticalfollow = .2
+tension = 50
+zoomin = 1
+zoomout = 0.8
+
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -70       
+p1starty = 0           
+p1startz = 0          
+p1facing = 1            
+
+;--- Player 2 ---
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+leftbound  = -1000 
+rightbound =  1000 
+topbound  =  0     
+botbound  =  0     
+
+;--------------------------------------------------------
+[Scaling]
+topz     = 0     
+botz     = 50     
+topscale = 1       
+botscale = 1.2     
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 15    
+screenright = 15   
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 220
+autoturn = 1
+resetBG = 1
+
+;--------------------------------------------------------
+[Shadow]
+color = 128,128,128
+yscale = .2
+
+;--------------------------------------------------------
+[Music]
+bgmusic = 
+bgvolume = 0
+
+;========================================================
+
+;-------------------------------------
+[BGdef]
+spr = stages/waku7-raistageday.sff
+debugbg = 0
+
+;----------
+[BG 0]
+type  = normal
+spriteno = 0,0
+mask  = 1
+
+;----------
+[BG 1]
+type  = anim
+actionno = 1
+
+[Begin action 1] 
+1,0, 0,0, 6
+1,1, 0,0, 6
+1,2, 0,0, 6
+1,3, 0,0, 6
+1,4, 0,0, 6
+1,5, 0,0, 6
+1,6, 0,0, 6
+1,7, 0,0, 6
+
+;----------
+[BG 2]
+type  = anim
+actionno = 2
+
+[Begin action 2]
+2,0, 0,0, 6
+2,1, 0,0, 6
+2,2, 0,0, 6
+2,3, 0,0, 6
+2,4, 0,0, 6
+2,5, 0,0, 6
+2,6, 0,0, 6
+2,7, 0,0, 6
+
+;----------
+[BG 3]
+type  = anim
+actionno = 3
+
+[Begin action 3] 
+3,0, 0,0, 6
+3,1, 0,0, 6
+3,2, 0,0, 6
+3,3, 0,0, 6
+3,4, 0,0, 6
+3,5, 0,0, 6
+3,6, 0,0, 6
+3,7, 0,0, 6

@@ -1,0 +1,369 @@
+[Info]
+ ;Name of the stage.
+;name = "POCKET - Bar Maximum"
+name = "V"
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -80
+boundright = 80
+boundhigh = -40
+boundlow = -10
+verticalfollow = .4
+tension = 60
+zoomin = 1
+zoomout = 0.8
+
+[PlayerInfo]
+p1startx = -70          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1startz = 0            ;Starting z coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+topbound  =  0     ;Top bound (z-movement)
+botbound  =  0     ;Bottom bound
+
+[Scaling]
+topz     = 0       ;Top z-coordinate for scaling
+botz     = 50      ;Bottom z-coordinate for scaling
+topscale = 1       ;Scale to use at top
+botscale = 1.2     ;Scale to use at bottom
+
+[Bound]
+screenleft = 15    ;Dist from left of screen that player can move to
+screenright = 15   ;Right edge
+
+[StageInfo]
+zoffset = 220
+autoturn = 1
+resetBG = 0
+
+[Shadow]
+color = 92,92,92
+yscale = .4
+
+[Music]
+bgmusic = sound/maximum.mp3
+bgvolume = 0
+
+[BGdef]
+spr = stages/pocket-barmaximum.sff
+debugbg = 0
+
+;----------
+[BG Back, top]
+type = normal
+spriteno = 0,0
+mask = 0
+start = 0, 256
+delta = 1,1
+
+[BG Back, bottom left]
+type = normal
+spriteno = 0,1
+mask = 0
+start = 0, 256
+delta = 1,1
+
+[BG Back, bottom middle]
+type = normal
+spriteno = 0,2
+mask = 0
+start = 0, 256
+delta = 1,1
+
+[BG Back, bottom right]
+type = normal
+spriteno = 0,3
+mask = 0
+start = 0, 256
+delta = 1,1
+
+;--------------
+[BG Left light]
+type = anim
+actionno = 000
+mask = 0
+start = 0,256
+delta = 1,1
+
+[BG Right light]
+type = anim
+actionno = 1
+mask = 0
+start = 0,256
+delta = 1,1
+
+[BG Than]
+type = anim
+actionno = 2
+mask = 0
+start = 0,256
+delta = 1,1
+
+[Begin Action 000]
+Loopstart
+-1,-1,0,0,2
+1,0,0,0,2
+
+[Begin Action 001]
+Loopstart
+-1,-1,0,0,2
+1,1,0,0,2
+
+[Begin Action 002]
+Loopstart
+-1,-1,0,0,1
+1,2,0,0,1
+
+;-------------
+[BG Cashier]
+type = anim
+actionno = 3
+mask = 0
+start = 0,256
+delta = 1,1
+
+[Begin Action 003]
+Loopstart
+-1,-1,0,0,21;24;27;31
+2,0,0,0,7;8
+2,1,0,0,10;12
+2,2,0,0,8;10
+2,3,0,0,7;8
+2,4,0,0,8;10
+2,5,0,0,10;12
+
+;--------------
+[BG Cammy]
+type = anim
+actionno = 4
+mask = 0
+start = 0,256
+delta = 1,1
+
+[Begin Action 004]
+Loopstart
+-1,-1,0,0,9;10
+4,0,0,0,9;10
+4,1,0,0,9;10
+4,2,0,0,9;11
+4,3,0,0,9;11
+4,4,0,0,7;8
+4,5,0,0,9;10
+4,6,0,0,9;10
+
+;------------
+[BG Honda]
+type = anim
+actionno = 5
+mask = 0
+start = 0,256
+delta = 1,1
+
+[Begin Action 005]
+Loopstart
+-1,-1,0,0,10;12
+5,0,0,0,9;10
+5,1,0,0,9;10
+5,2,0,0,9;10
+
+;-----------
+[BG Maximum]
+type = anim
+actionno = 6
+mask = 0
+start = 0,256
+delta = 1,1
+
+[Begin Action 006]
+Loopstart
+-1,-1,0,0,6
+6,0,0,0,4
+-1,-1,0,0,3
+6,0,0,0,2
+-1,-1,0,0,1
+6,0,0,0,2
+6,1,0,0,2
+-1,-1,0,0,2
+6,0,0,0,2
+-1,-1,0,0,2
+6,0,0,0,4
+6,1,0,0,4   ; ???
+
+;-----------
+[BG Dee Jay]
+type = anim
+actionno = 7
+mask = 0
+start = 0,256
+delta = 1,1
+
+[Begin Action 007]
+7,0,0,0,3;4
+7,1,0,0,5;6
+7,2,0,0,5;6
+7,3,0,0,3;4
+7,4,0,0,4;5
+7,5,0,0,5;6
+7,6,0,0,4;5
+7,7,0,0,5;6
+7,8,0,0,3;4
+
+;--------------
+[BG Capcom]
+type = anim
+actionno = 8
+start = 0,256
+delta = 1,1
+
+[Begin Action 008]
+-1,-1,0,0,37
+8,0,0,0,4;2
+-1,-1,0,0,60
+8,0,0,0,4;2
+-1,-1,0,0,63
+8,1,0,0,4
+-1,-1,0,0,2
+8,0,0,0,2
+-1,-1,0,0,3
+8,1,0,0,3
+-1,-1,0,0,2
+8,0,0,0,2
+-1,-1,0,0,2
+8,0,0,0,1
+-1,-1,0,0,2
+8,0,0,0,18
+
+;-----------------
+[BG Nash and Guile]
+type = anim
+actionno = 9
+mask = 0
+start = 0,256
+delta = 1,1
+
+[Begin Action 009]
+Loopstart
+-1,-1,0,0,27;30
+9,0,0,0,9;11
+9,1,0,0,9;11
+9,2,0,0,7;8
+9,3,0,0,9;10
+9,4,0,0,9;10
+
+;-----------------
+[BG Toilet]
+type = anim
+actionno = 10
+mask = 0
+start = 0,256
+delta = 1,1
+
+[Begin Action 010]
+10,2,0,0,7
+10,1,0,0,2
+10,3,0,0,3
+10,1,0,0,2
+10,4,0,0,2
+10,1,0,0,2
+10,0,0,0,2
+10,1,0,0,2
+-1,-1,0,0,4
+10,1,0,0,2
+-1,-1,0,0,4
+10,1,0,0,2
+10,3,0,0,2
+10,1,0,0,2
+10,4,0,0,4
+10,1,0,0,3
+10,0,0,0,2
+
+;-----------------
+[BG Birdie]
+type = anim
+mask = 0
+start = 0,256
+delta = 1,1
+actionno = 11
+
+[Begin Action 011]
+Loopstart
+;-1,-1,0,0,13;16;19
+;12,1,0,0,8;10
+;12,2,0,0,7;9
+;12,3,0,0,9;11
+;12,4,0,0,7;8
+;12,5,0,0,8;10
+;12,6,0,0,6;7
+11,0,0,0,2
+-1,-1,0,0,2
+11,0,0,0,2
+-1,-1,0,0,2
+11,0,0,0,2
+-1,-1,0,0,2
+11,0,0,0,1
+11,1,0,0,1
+12,1,0,0,2
+11,1,0,0,2
+12,1,0,0,2
+11,1,0,0,1
+11,2,0,0,1
+12,2,0,0,2
+11,2,0,0,2
+12,2,0,0,2
+11,3,0,0,2
+12,3,0,0,2
+11,3,0,0,2
+12,3,0,0,2
+11,3,0,0,1
+11,4,0,0,1
+12,4,0,0,2
+11,4,0,0,2
+12,4,0,0,2
+11,5,0,0,2
+12,5,0,0,2
+11,5,0,0,2
+12,5,0,0,2
+11,5,0,0,2
+12,5,0,0,2
+11,5,0,0,2
+-1,-1,0,0,2
+11,0,0,0,2
+-1,-1,0,0,2
+11,0,0,0,2
+-1,-1,0,0,2
+11,0,0,0,2
+-1,-1,0,0,1
+12,1,0,0,1
+11,1,0,0,2
+12,1,0,0,2
+11,1,0,0,2
+12,1,0,0,1
+12,2,0,0,1
+11,2,0,0,2
+12,2,0,0,2
+11,2,0,0,2
+12,3,0,0,2
+11,3,0,0,2
+12,3,0,0,2
+11,3,0,0,2
+12,3,0,0,1
+12,4,0,0,1
+11,4,0,0,2
+12,4,0,0,2
+11,4,0,0,2
+12,5,0,0,2
+11,5,0,0,2
+12,5,0,0,2
+11,5,0,0,2
+12,5,0,0,2
+11,5,0,0,2
+12,5,0,0,2

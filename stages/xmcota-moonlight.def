@@ -1,0 +1,4481 @@
+; Definition of X-MEN's PSYLOCKE stage, "Moon Light"
+
+;--------------------------------------------------------
+[Info]
+ ;Name of the stage.
+;name = "XMCOTA - Moon Light"
+name = "z"
+
+;--------------------------------------------------------
+[Camera]
+ ;Camera starting position: Usually 0 for both
+ ;***
+startx = 0
+starty = 0
+
+ ;Left and right bound of camera
+ ;You may want to fiddle a bit with these values to make sure the
+ ;background doesn't move too far or too little
+ ;***
+boundleft = -126.5
+boundright = 127
+
+ ;High and low bound of camera
+ ;High is a negative number. Make is more negative if you want to
+ ;camera to be able to move higher.
+ ;Low should usually be 0.
+ ;If omitted, defaults to -25 and 0 respectively
+ ;***
+boundhigh = -140
+boundlow = -12
+
+ ;This is how much the camera will move vertically towards the
+ ;highest player. Valid values are from 0 to 1. A value of 0 will mean
+ ;the camera does not move up at all. A value of 1 will makes the camera
+ ;follow the highest player.
+ ;Typically .2 for normal-sized backgrounds. You may need to pull this
+ ;value up for taller backgrounds.
+verticalfollow = 0.485
+
+ ;Distance player is from edge before camera starts to move. Typically 50
+tension = 50
+floortension = 65
+zoomin = 1
+zoomout = 0.8
+
+
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+ ;Player 1 starting coordinates.
+ ;p1startx is typically -70 and p2startx is 70.
+ ;p1starty and p1startz should be 0.
+p1startx = -80          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1startz = 0            ;Starting z coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+
+;--- Player 2 ---
+p2startx = 80
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+;Don't change these values.
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+topbound  =  0     ;Top bound (z-movement)
+botbound  =  0     ;Bottom bound
+
+;--------------------------------------------------------
+[Scaling]
+ ;No need to change these values
+topz     = 0       ;Top z-coordinate for scaling
+botz     = 50      ;Bottom z-coordinate for scaling
+topscale = 1       ;Scale to use at top
+botscale = 1.2     ;Scale to use at bottom
+
+;--------------------------------------------------------
+[Bound]
+ ;Distance from left/right edge of screen that player can move to
+ ;Typically 15
+screenleft = 15    ;Dist from left of screen that player can move to
+screenright = 15   ;Right edge
+
+;--------------------------------------------------------
+[StageInfo]
+ ;Z offset for drawing
+ ;Adjust this value to move the ground level up/down in the screen.
+ ;It's the position where the players stand at.
+ ;Up - smaller, Down - larger
+ ;***
+zoffset = 208
+zoffsetlink = 20
+
+ ;Leave this at 1. It makes the players face each other
+autoturn = 1
+
+ ;Set the following to 1 to have the background be reset between
+ ;rounds.
+resetBG = 0
+
+;--------------------------------------------------------
+[Shadow]
+ ;This is the shadow color given in r,g,b. Valid values for each
+ ;range from 0 (lightest) to 255 (darkest).
+ ;Defaults to 92,92,92 if omitted.
+color = 180, 180, 180
+
+ ;This is the scale factor of the shadow. Use a big scale factor
+ ;to make the shadow longer. You can use a NEGATIVE scale factor
+ ;to make the shadow fall INTO the screen.
+ ;Defaults to 0.4 if omitted.
+yscale = .1
+
+ ;Set to 1 to draw "reflection" shadows. Defaults to 0.
+reflect = 0
+
+;--------------------------------------------------------
+[Music]
+ ;Put a filename for an MP3 or MIDI here, or just comment
+ ;it out if you don't want music. If an invalid filename
+ ;is given, then no music will play.
+;bgmusic = sound/moonbgm.mp3
+
+ ;Adjust the volume. 0 is normal, negative for softer, and
+ ;positive for louder (only for mp3 and mods)
+bgvolume = -25
+
+;========================================================
+;--------------------------------------------------------
+; Background definition
+; ***
+;-------------------------------------
+; [BG x]
+; type = ?       "Normal"/"Parallax"/"Height"  (def: "normal")
+; spriteno = ?, ? Sprite group and number: groupno, imgno  (req'd)
+; start = ?, ?   Starting location (integer)  (def: 0, 0)
+; delta = ?, ?   Change in location per camera unit moved (float)  (def: 1,1)
+; trans = ?      Transparency settings: "none"/"add"/"sub"/"avg" (def: "none")
+; mask = ?       Masking (int): 0 - off, 1 - on  (def: 0)
+; velocity = ?, ? Velocity: x, y (float): speed background moves (def: 0, 0)
+; tile = ?, ?    Tiling: xtile, ytile (int): 0 - off, 1 - infinite,
+;                        >1 - tile that number of times  (def: 0, 0)
+; tilespacing = ?, ? Tiling: x, y (int) : space between tiles (def: 0, 0)
+;  Parallax-only:
+; xscale = ?, ?    Top xscale, bottom xscale (float) (if used, then no tiling)
+; width = ?, ?     Top width, bottom width (int)  (if used, then tiles;
+;                             use either this or above, but not both)
+; yscalestart = ?  Starting y-scale (float, in percent)  (def: 100)
+; yscaledelta = ?  Change in y-scale per unit (float, in percent)  (def: 0)
+;-------------------------------------
+
+;-------------------------------------
+; Main background definition
+[BGdef]
+ ;Filename of sprite data
+spr = stages/xmcota-moonlight.sff
+ ;Set to 1 if you want to clear the screen to magenta before
+ ;drawing layer 0 (the default background). Good for spotting "holes"
+ ;in your background.
+debugbg = 0
+
+;----------
+; Start each background element with the following:
+; Make sure it's "[BG n]", where n is anything you like (it's only used to
+; report errors.) For example, you could use:  [BG TheFloor]
+; Specify as many as you like. This is an example of a normal background:
+;[BG 0]
+
+ ;The background type goes here: for now, only NORMAL and PARALLAX
+ ;If this line is omitted, the type will be assumed to be normal.
+;type  = normal
+
+ ;The sprite number to use for the background (from the SFF specified above)
+ ;It's the group-number, followed by a comma, then the sprite-number
+ ;*** Do not omit this line.
+;spriteno = 0, 0
+
+ ;This is the layer number, which determines where the sprite is drawn to.
+ ;Valid values are 0 and 1.
+ ;0 for background (behind characters), 1 for foreground (in front)
+ ;If this line is omitted, the default value of 0 will be assumed.
+;layerno = 0                
+
+ ;This is the starting location of the background in the format
+ ;x, y
+ ;If this line is omitted, the default value of 0,0 will be assumed.
+;start = 0, 0
+
+ ;These are the number of pixels the background moves for every single unit
+ ;of camera movement, in the format
+ ;x, y
+ ;For the main background (eg. the floor the players stand on) you'll want
+ ;to use a delta of 1,1. Things farther away should have a smaller delta,
+ ;like 0.5 for example. Things near the camera should have a larget delta.
+ ;If this line is omitted, the default value of 1,1 will be assumed.
+;delta = .5,.5
+
+ ;Here is the transparency setting of the background.
+ ;Valid values are:
+ ;"none" for normal drawing
+ ;"add" for colour addition (like a spotlight effect)
+ ;"sub" for colour subtraction (like a shadow effect)
+ ;If this line is omitted, it's assumed that there will be no transparency.
+;trans = none
+
+ ;Mask means whether or not to draw colour zero of a sprite.
+ ;If you turn masking off, the background will take less CPU power to draw,
+ ;so remember to turn it off on sprites that don't use it.
+ ;If this line is omitted, it's assumed that there will be no masking.
+;mask  = 0
+
+ ;The format for tiling is x,y. For each of them, the value is:
+ ;0 to use no tiling, 1 to tile, n where (n>1) to tile n times.
+ ;If this line is omitted, it's assumed that there will be no tiling.
+;tile  = 0, 0
+
+ ;This is the x and y space between each tile, for tiled backgrounds
+ ;If omitted, default value is 0,0
+;tilespacing = 0,0
+
+ ;This defines the drawing space, or "window" of the background. It's
+ ;given in the form
+ ;x1,y1, x2,y2
+ ;where (x1,y1)-(x2,y2) define a rectangular box.
+ ;Make the window smaller if you only want to draw part of the background.
+ ;You normally do not have to change this setting. Value values range from
+ ;0-319 for x, and 0-239 for y. The values are 0,0, 319,239 by default (full
+ ;screen).
+;window = 0,0, 319, 239
+
+ ;Similar to the delta parameter, this one affects the movement of
+ ;the window. Defaults to 0,0
+;windowdelta = 0,0
+
+
+;=============================================================================
+; Background definition
+;=============================================================================
+
+;-----------------------------------------------------------------------------
+[BG Moon]
+type  = Normal
+spriteno = 1045, 0
+ID = 7
+start = 0, -673
+delta = 0.315, 0.285
+
+;-----------------------------------------------------------------------------
+[BG Building 1]
+type  = Anim
+actionno = 1051
+ID = 7
+start = -144, -588
+delta = 0.315, 0.285
+
+[Begin Action 1051]
+1051, 0, 0, 0, 30
+1051, 1, 0, 0, 10
+1051, 2, 0, 0, 30
+1051, 1, 0, 0, 10
+
+[BG Building 2]
+type  = Anim
+actionno = 1050
+ID = 7
+start = -174, -607
+delta = 0.315, 0.285
+
+[Begin Action 1050]
+1050, 0, 0, 0, 64
+1050, 1, 0, 0, 10
+1050, 2, 0, 0, 10
+1050, 3, 0, 0, 64
+1050, 2, 0, 0, 10
+1050, 1, 0, 0, 10
+
+[BG Building 3]
+type  = Anim
+actionno = 1052
+ID = 7
+start = -142, -495
+delta = 0.315, 0.285
+
+[Begin Action 1052]
+1052, 0, 0, 0, 64
+1052, 1, 0, 0, 10
+1052, 2, 0, 0, 10
+1052, 3, 0, 0, 64
+1052, 2, 0, 0, 10
+1052, 1, 0, 0, 10
+
+[BG Building 4]
+type  = Anim
+actionno = 1053
+ID = 7
+start = -136, -497
+delta = 0.315, 0.285
+
+[Begin Action 1053]
+1053, 0, 0, 0, 32
+1053, 1, 0, 0, 32
+1053, 2, 0, 0, 32
+1053, 1, 0, 0, 32
+
+[BG Building 5]
+type  = Anim
+actionno = 1054
+ID = 7
+start = -135, -487
+delta = 0.315, 0.285
+
+[Begin Action 1054]
+1054, 0, 0, 0, 16
+1054, 1, 0, 0, 16
+1054, 2, 0, 0, 16
+1054, 3, 0, 0, 16
+1054, 2, 0, 0, 16
+1054, 1, 0, 0, 16
+
+[BG Building 6]
+type  = Anim
+actionno = 1056
+ID = 7
+start = -75, -455
+delta = 0.315, 0.285
+
+[Begin Action 1056]
+1055, 0, 0, 0,11
+1055, 1, 0, 0, 5
+1055, 2, 0, 0,11
+1055, 3, 0, 0, 5
+1055, 4, 0, 0,11
+1055, 5, 0, 0, 5
+1055, 6, 0, 0,11
+1055, 7, 0, 0, 5
+1055, 8, 0, 0,16
+1055, 9, 0, 0,16
+
+[BG Building 7]
+type  = Anim
+actionno = 1057
+ID = 7
+start = 164, -455
+delta = 0.315, 0.285
+
+[Begin Action 1057]
+1055, 0, 0, 0,11, H
+1055, 1, 0, 0, 5, H
+1055, 2, 0, 0,11, H
+1055, 3, 0, 0, 5, H
+1055, 4, 0, 0,11, H
+1055, 5, 0, 0, 5, H
+1055, 6, 0, 0,11, H
+1055, 7, 0, 0, 5, H
+1055, 8, 0, 0,16, H
+1055, 9, 0, 0,16, H
+
+[BG Building 8]
+type  = Anim
+actionno = 1058
+ID = 7
+start = -95, -481
+delta = 0.315, 0.285
+
+[Begin Action 1058]
+1058, 0, 0, 0, 16
+1058, 1, 0, 0, 16
+1058, 2, 0, 0, 16
+1058, 3, 0, 0, 16
+1058, 4, 0, 0, 16
+1058, 5, 0, 0, 16
+
+[BG Building 9]
+type  = Anim
+actionno = 1059
+ID = 7
+start = -29, -448
+delta = 0.315, 0.285
+
+[Begin Action 1059]
+1059, 0, 0, 0, 32
+1059, 1, 0, 0, 32
+1059, 2, 0, 0, 32
+1059, 1, 0, 0, 32
+
+[BG Building 10]
+type  = Anim
+actionno = 1060
+ID = 7
+start = -96, -490
+delta = 0.315, 0.285
+
+[Begin Action 1060]
+1060, 0, 0, 0, 30
+1060, 1, 0, 0, 10
+1060, 2, 0, 0, 30
+1060, 1, 0, 0, 10
+
+[BG Building 11]
+type  = Anim
+actionno = 1061
+ID = 7
+start = -87, -502
+delta = 0.315, 0.285
+
+[Begin Action 1061]
+1061, 0, 0, 0, 30
+1061, 1, 0, 0, 10
+1061, 2, 0, 0, 30
+1061, 1, 0, 0, 10
+
+[BG Building 12]
+type  = Anim
+actionno = 1063
+ID = 7
+start = -41, -519
+delta = 0.315, 0.285
+
+[Begin Action 1063]
+1063, 0, 0, 0, 64
+1063, 1, 0, 0, 10
+1063, 2, 0, 0, 10
+1063, 3, 0, 0, 64
+1063, 2, 0, 0, 10
+1063, 1, 0, 0, 10
+
+[BG Building 13]
+type  = Anim
+actionno = 1062
+ID = 7
+start = -39, -515
+delta = 0.315, 0.285
+
+[Begin Action 1062]
+1062, 0, 0, 0, 30
+1062, 1, 0, 0, 10
+1062, 2, 0, 0, 30
+1062, 1, 0, 0, 10
+               
+[BG Building 14]
+type  = Anim
+actionno = 1064
+ID = 7
+start = 48, -504
+delta = 0.315, 0.285
+
+[Begin Action 1064]
+1064, 0, 0, 0, 64
+1064, 1, 0, 0, 10
+1064, 2, 0, 0, 10
+1064, 3, 0, 0, 64
+1064, 2, 0, 0, 10
+1064, 1, 0, 0, 10
+
+[BG Building 15]
+type  = Anim
+actionno = 1065
+ID = 7
+start = 9, -473
+delta = 0.315, 0.285
+
+[Begin Action 1065]
+1065, 0, 0, 0, 64
+1065, 1, 0, 0, 10
+1065, 2, 0, 0, 10
+1065, 3, 0, 0, 64
+1065, 2, 0, 0, 10
+1065, 1, 0, 0, 10
+
+[BG Building 16]
+type  = Anim
+actionno = 1070
+ID = 7
+start = -6, -528
+delta = 0.315, 0.285
+
+[Begin Action 1070]
+1066, 0, 0, 0, 64
+1066, 1, 0, 0, 10
+1066, 2, 0, 0, 10
+1066, 3, 0, 0, 64
+1066, 2, 0, 0, 10
+1066, 1, 0, 0, 10
+
+[BG Building 17]
+type  = Anim
+actionno = 1071
+ID = 7
+start = 3, -487
+delta = 0.315, 0.285
+
+[Begin Action 1071]
+1071, 0, 0, 0, 64
+1071, 1, 0, 0, 10
+1071, 2, 0, 0, 10
+1071, 3, 0, 0, 64
+1071, 2, 0, 0, 10
+1071, 1, 0, 0, 10
+
+[BG Building 18]
+type  = Anim
+actionno = 1072
+ID = 7
+start = -100, -519
+delta = 0.315, 0.285
+
+[Begin Action 1072]
+1072, 0, 0, 0, 64
+1072, 1, 0, 0, 7
+1072, 2, 0, 0, 7
+1072, 3, 0, 0, 64
+1072, 2, 0, 0, 7
+1072, 1, 0, 0, 7
+
+[BG Building 19]
+type  = Anim
+actionno = 1073
+ID = 7
+start = -79, -486
+delta = 0.315, 0.285
+
+[Begin Action 1073]
+1073, 0, 0, 0, 32
+1073, 1, 0, 0, 32
+1073, 2, 0, 0, 32
+1073, 1, 0, 0, 32
+
+[BG Building 20]
+type  = Anim
+actionno = 1074
+ID = 7
+start = -72, -521
+delta = 0.315, 0.285
+
+[Begin Action 1074]
+1074, 0, 0, 0, 32
+1074, 1, 0, 0, 32
+1074, 2, 0, 0, 32
+1074, 1, 0, 0, 32
+
+[BG Building 21]
+type  = Anim
+actionno = 1075
+ID = 7
+start = -72, -536
+delta = 0.315, 0.285
+
+[Begin Action 1075]
+1075, 0, 0, 0, 30
+1075, 1, 0, 0, 10
+1075, 2, 0, 0, 30
+1075, 1, 0, 0, 10
+
+[BG Building 22]
+type  = Anim
+actionno = 1076
+ID = 7
+start = -39, -552
+delta = 0.315, 0.285
+
+[Begin Action 1076]
+1076, 0, 0, 0, 30
+1076, 1, 0, 0, 10
+1076, 2, 0, 0, 30
+1076, 1, 0, 0, 10
+
+[BG Building 23]
+type  = Anim
+actionno = 1077
+ID = 7
+start = -8, -512
+delta = 0.315, 0.285
+
+[Begin Action 1077]
+1077, 0, 0, 0, 32
+1077, 1, 0, 0, 32
+1077, 2, 0, 0, 32
+1077, 1, 0, 0, 32
+
+[BG Building 24]
+type  = Anim
+actionno = 1079
+ID = 7
+start = 9, -336
+delta = 0.315, 0.285
+
+[Begin Action 1079]
+1078, 0, 0, 0, 32
+1078, 1, 0, 0, 32
+1078, 2, 0, 0, 32
+1078, 1, 0, 0, 32
+
+[BG Building 25]
+type  = Anim
+actionno = 1080
+ID = 7
+start = 8, -446
+delta = 0.315, 0.285
+
+[Begin Action 1080]
+1080, 0, 0, 0, 16
+1080, 1, 0, 0, 16
+1080, 2, 0, 0, 16
+1080, 3, 0, 0, 16
+1080, 2, 0, 0, 16
+1080, 1, 0, 0, 16
+
+[BG Building 26]
+type  = Anim
+actionno = 1081
+ID = 7
+start = 32, -480
+delta = 0.315, 0.285
+
+[Begin Action 1081]
+1081, 0, 0, 0, 14
+1081, 1, 0, 0, 2
+1081, 2, 0, 0, 16
+1081, 3, 0, 0, 16
+1081, 4, 0, 0, 16
+1081, 5, 0, 0, 16
+1081, 6, 0, 0, 14
+1081, 7, 0, 0, 2
+
+[BG Building 27]
+type  = Anim
+actionno = 1082
+ID = 7
+start = 44, -487
+delta = 0.315, 0.285
+
+[Begin Action 1082]
+1071, 0, 0, 0, 64
+1071, 1, 0, 0, 7
+1071, 2, 0, 0, 7
+1071, 3, 0, 0, 64
+1071, 2, 0, 0, 7
+1071, 1, 0, 0, 7
+
+[BG Building 28]
+type  = Anim
+actionno = 1071
+ID = 7
+start = 76, -487
+delta = 0.315, 0.285
+
+[BG Building 29]
+type  = Anim
+actionno = 1071
+ID = 7
+start = 124, -487
+delta = 0.315, 0.285
+
+[BG Building 30]
+type  = Anim
+actionno = 1083
+ID = 7
+start = 56, -516
+delta = 0.315, 0.285
+
+[Begin Action 1083]
+1083, 0, 0, 0, 64
+1083, 1, 0, 0, 10
+1083, 2, 0, 0, 10
+1083, 3, 0, 0, 64
+1083, 2, 0, 0, 10
+1083, 1, 0, 0, 10
+
+[BG Building 31]
+type  = Anim
+actionno = 1084
+ID = 7
+start = 124, -519
+delta = 0.315, 0.285
+
+[Begin Action 1084]
+1084, 0, 0, 0, 64
+1084, 1, 0, 0, 10
+1084, 2, 0, 0, 10
+1084, 3, 0, 0, 64
+1084, 2, 0, 0, 10
+1084, 1, 0, 0, 10
+
+[BG Building 32]
+type  = Anim
+actionno = 1085
+ID = 7
+start = 77, -503
+delta = 0.315, 0.285
+
+[Begin Action 1085]
+1085, 0, 0, 0, 32
+1085, 1, 0, 0, 32
+1085, 2, 0, 0, 32
+1085, 1, 0, 0, 32
+
+[BG Building 33]
+type  = Anim
+actionno = 1086
+ID = 7
+start = 82, -472
+delta = 0.315, 0.285
+
+[Begin Action 1086]
+1086, 0, 0, 0, 16
+1086, 1, 0, 0, 16
+1086, 2, 0, 0, 16
+1086, 3, 0, 0, 16
+1086, 2, 0, 0, 16
+1086, 1, 0, 0, 16
+
+[BG Building 34]
+type  = Anim
+actionno = 1087
+ID = 7
+start = 82, -487
+delta = 0.315, 0.285
+
+[Begin Action 1087]
+1087, 0, 0, 0, 30
+1087, 1, 0, 0, 10
+1087, 2, 0, 0, 30
+1087, 1, 0, 0, 10
+
+[BG Building 35]
+type  = Anim
+actionno = 1088
+ID = 7
+start = 74, -478
+delta = 0.315, 0.285
+
+[Begin Action 1088]
+1088, 0, 0, 0, 32
+1088, 1, 0, 0, 16
+1088, 0, 0, 0, 16
+1088, 1, 0, 0, 32
+
+[BG Building 36]
+type  = Anim
+actionno = 1089
+ID = 7
+start = 106, -479
+delta = 0.315, 0.285
+
+[Begin Action 1089]
+1089, 0, 0, 0, 16
+1089, 1, 0, 0, 16
+1089, 2, 0, 0, 16
+1089, 3, 0, 0, 16
+1089, 2, 0, 0, 16
+1089, 1, 0, 0, 16
+
+[BG Building 37]
+type  = Anim
+actionno = 1090
+ID = 7
+start = 129, -472
+delta = 0.315, 0.285
+
+[Begin Action 1090]
+1090, 0, 0, 0, 16
+1090, 1, 0, 0, 16
+1090, 2, 0, 0, 16
+1090, 3, 0, 0, 16
+1090, 4, 0, 0, 16
+1090, 5, 0, 0, 16
+
+[BG Building 38]
+type  = Anim
+actionno = 1091
+ID = 7
+start = 144, -516
+delta = 0.315, 0.285
+
+[Begin Action 1091]
+1091, 0, 0, 0, 30
+1091, 1, 0, 0, 10
+1091, 2, 0, 0, 30
+1091, 1, 0, 0, 10
+
+[BG Building 39]
+type  = Anim
+actionno = 1092
+ID = 7
+start = 188, -543
+delta = 0.315, 0.285
+
+[Begin Action 1092]
+1092, 0, 0, 0, 30
+1092, 1, 0, 0, 10
+1092, 2, 0, 0, 30
+1092, 1, 0, 0, 10
+
+[BG Building 40]
+type  = Anim
+actionno = 1093
+ID = 7
+start = 209, -502
+delta = 0.315, 0.285
+
+[Begin Action 1093]
+1093, 0, 0, 0, 30
+1093, 1, 0, 0, 10
+1093, 2, 0, 0, 30
+1093, 1, 0, 0, 10
+
+[BG Building 41]
+type  = Anim
+actionno = 1094
+ID = 7
+start = 216, -490
+delta = 0.315, 0.285
+
+[Begin Action 1094]
+1094, 0, 0, 0, 30
+1094, 1, 0, 0, 10
+1094, 2, 0, 0, 30
+1094, 1, 0, 0, 10
+
+[BG Building 42]
+type  = Anim
+actionno = 1084
+ID = 7
+start = 220, -549
+delta = 0.315, 0.285
+
+[BG Building 43]
+type  = Anim
+actionno = 1095
+ID = 7
+start = 144, -513
+delta = 0.315, 0.285
+
+[Begin Action 1095]
+1095, 0, 0, 0, 64
+1095, 1, 0, 0, 10
+1095, 2, 0, 0, 10
+1095, 3, 0, 0, 64
+1095, 2, 0, 0, 10
+1095, 1, 0, 0, 10
+
+[BG Building 44]
+type  = Anim
+actionno = 1096
+ID = 7
+start = 184, -466
+delta = 0.315, 0.285
+
+[Begin Action 1096]
+1096, 0, 0, 0, 64
+1096, 1, 0, 0, 10
+1096, 2, 0, 0, 10
+1096, 3, 0, 0, 64
+1096, 2, 0, 0, 10
+1096, 1, 0, 0, 10
+
+[BG Building 45]
+type  = Anim
+actionno = 1097
+ID = 7
+start = 201, -516
+delta = 0.315, 0.285
+
+[Begin Action 1097]
+1097, 0, 0, 0, 64
+1097, 1, 0, 0, 10
+1097, 2, 0, 0, 10
+1097, 3, 0, 0, 64
+1097, 2, 0, 0, 10
+1097, 1, 0, 0, 10
+
+[BG Building 46]
+type  = Anim
+actionno = 1098
+ID = 7
+start = 184, -521
+delta = 0.315, 0.285
+
+[Begin Action 1098]
+1098, 0, 0, 0, 32
+1098, 1, 0, 0, 32
+1098, 2, 0, 0, 32
+1098, 1, 0, 0, 32
+
+[BG Building 47]
+type  = Anim
+actionno = 1099
+ID = 7
+start = 168, -486
+delta = 0.315, 0.285
+
+[Begin Action 1099]
+1099, 0, 0, 0, 32
+1099, 1, 0, 0, 32
+1099, 2, 0, 0, 32
+1099, 1, 0, 0, 32
+
+[BG Building 48]
+type  = Anim
+actionno = 1100
+ID = 7
+start = 170, -497
+delta = 0.315, 0.285
+
+[Begin Action 1100]
+1100, 0, 0, 0, 30
+1100, 1, 0, 0, 10
+1100, 2, 0, 0, 30
+1100, 1, 0, 0, 10
+
+[BG Building 49]
+type  = Anim
+actionno = 1101
+ID = 7
+start = 161, -473
+delta = 0.315, 0.285
+
+[Begin Action 1101]
+1101, 0, 0, 0, 64
+1101, 1, 0, 0, 10
+1101, 2, 0, 0, 10
+1101, 3, 0, 0, 64
+1101, 2, 0, 0, 10
+1101, 1, 0, 0, 10
+
+[BG Building 50]
+type  = Anim
+actionno = 1102
+ID = 7
+start = 201, -471
+delta = 0.315, 0.285
+
+[Begin Action 1102]
+1102, 0, 0, 0, 16
+1102, 1, 0, 0, 16
+1102, 2, 0, 0, 16
+1102, 3, 0, 0, 16
+1102, 2, 0, 0, 16
+1102, 1, 0, 0, 16
+
+[BG Building 51]
+type  = Anim
+actionno = 1088
+ID = 7
+start = 218, -478
+delta = 0.315, 0.285
+
+;-----------------------------------------------------------------------------
+[BG Blue 1]
+type  = Normal
+spriteno = 1005, 0
+ID = 1
+start = -288, 30
+delta = 0.505, 0.74
+
+[BG Blue 2]
+type  = Anim
+actionno = 1005
+ID = 1
+start = 287, 30
+delta = 0.505, 0.74
+
+[Begin Action 1005]
+1005, 0, 0, 0, 1, H
+
+[BG Blue 3]
+type  = Normal
+spriteno = 1005, 1
+ID = 1
+start = 0, 30
+delta = 0.505, 0.74
+
+[BG Blue 4]
+type  = Normal
+spriteno = 1005, 2
+ID = 1
+start = 0,  -67
+delta = 0.505, 0.74
+
+[BG Blue 5]
+type  = Normal
+spriteno = 1005, 3
+ID = 1
+start = 0, 148
+delta = 0.505, 0.74
+
+[BG Blue 1]
+type  = Normal
+spriteno = 1005, 0
+ID = 5
+start = -288, -1185
+delta = 0.505, 0.74
+
+[BG Blue 2]
+type  = Anim
+actionno = 1005
+ID = 5
+start = 287, -1185
+delta = 0.505, 0.74
+
+[BG Blue 3]
+type  = Normal
+spriteno = 1005, 1
+ID = 5
+start = 0, -1185
+delta = 0.505, 0.74
+
+[BG Blue 4]
+type  = Normal
+spriteno = 1005, 2
+ID = 5
+start = 0, -1283
+delta = 0.505, 0.74
+
+[BG Blue 5]
+type  = Normal
+spriteno = 1005, 3
+ID = 5
+start = 0, -1067
+delta = 0.505, 0.74
+
+;-----------------------------------------------------------------------------
+[BG Steel 1]
+type  = Normal
+spriteno = 1010, 0
+ID = 1
+start = 0, -131
+delta = 0.505, 0.74
+
+[BG Steel 2]
+type  = Normal
+spriteno = 1010, 1
+ID = 1
+start = 0, -355
+delta = 0.505, 0.74
+
+[BG Steel 3]
+type  = Normal
+spriteno = 1010, 2
+ID = 2
+start = 0, -739
+delta = 0.505, 0.74
+
+[BG Steel 4]
+type  = Normal
+spriteno = 1010, 0
+ID = 5
+start = 0, -963
+delta = 0.505, 0.74
+
+[BG Steel 5]
+type  = Normal
+spriteno = 1010, 0
+ID = 5
+start = 0, -1347
+delta = 0.505, 0.74
+
+[BG Steel 6]
+type  = Normal
+spriteno = 1010, 0
+ID = 5
+start = 0, -1571
+delta = 0.505, 0.74
+
+[BG Steel 7]
+type  = Normal
+spriteno = 1010, 3
+ID = 3
+start = 288, -106
+delta = 0.505, 0.74
+
+[BG Steel 8]
+type  = Normal
+spriteno = 1010, 3
+ID = 4
+start = 1056, -106
+delta = 0.505, 0.74
+
+;-----------------------------------------------------------------------------
+[BG Concrete 1]
+type  = Normal
+spriteno = 1015, 0
+ID = 1
+start = -288, -291
+delta = 0.505, 0.74
+
+[BG Concrete 2]
+type  = Normal
+spriteno = 1015, 1
+ID = 1
+start = -113, -291
+delta = 0.505, 0.74
+
+[BG Concrete 3]
+type  = Normal
+spriteno = 1015, 2
+ID = 1
+start = 95, -291
+delta = 0.505, 0.74
+
+[BG Concrete 4]
+type  = Normal
+spriteno = 1015, 3
+ID = 1
+start = -113, -259
+delta = 0.505, 0.74
+
+[BG Concrete 5]
+type  = Normal
+spriteno = 1015, 4
+ID = 1
+start = -288, -195
+delta = 0.505, 0.74
+
+[BG Concrete 6]
+type  = Normal
+spriteno = 1015, 5
+ID = 1
+start = -192, -195
+delta = 0.505, 0.74
+
+[BG Concrete 7]
+type  = Normal
+spriteno = 1015, 6
+ID = 1
+start = 181, -195
+delta = 0.505, 0.74
+
+[BG 33F]
+type  = Normal
+spriteno = 1015, 7
+ID = 1
+start = -64, -259
+delta = 0.505, 0.74
+
+[BG Concrete 1]
+type  = Normal
+spriteno = 1015, 8
+ID = 5
+start = -288, -899
+delta = 0.505, 0.74
+
+[BG Concrete 2]
+type  = Normal
+spriteno = 1015, 1
+ID = 5
+start = -113, -899
+delta = 0.505, 0.74
+
+[BG Concrete 3]
+type  = Normal
+spriteno = 1015, 2
+ID = 5
+start = 95, -899
+delta = 0.505, 0.74
+
+[BG Concrete 4]
+type  = Normal
+spriteno = 1015, 3
+ID = 5
+start = -113, -867
+delta = 0.505, 0.74
+
+[BG Concrete 5]
+type  = Normal
+spriteno = 1015, 9
+ID = 2
+start = -288, -803
+delta = 0.505, 0.74
+
+[BG Concrete 6]
+type  = Normal
+spriteno = 1015, 5
+ID = 2
+start = -192, -803
+delta = 0.505, 0.74
+
+[BG Concrete 7]
+type  = Normal
+spriteno = 1015,10
+ID = 2
+start = 181, -803
+delta = 0.505, 0.74
+
+[BG 34F]
+type  = Normal
+spriteno = 1015, 11
+ID = 5
+start = -64, -867
+delta = 0.505, 0.74
+
+[BG Concrete 1]
+type  = Normal
+spriteno = 1015, 0
+ID = 5
+start = -288, -1507
+delta = 0.505, 0.74
+
+[BG Concrete 2]
+type  = Normal
+spriteno = 1015, 1
+ID = 5
+start = -113, -1507
+delta = 0.505, 0.74
+
+[BG Concrete 3]
+type  = Normal
+spriteno = 1015, 2
+ID = 5
+start = 95, -1507
+delta = 0.505, 0.74
+
+[BG Concrete 4]
+type  = Normal
+spriteno = 1015, 3
+ID = 5
+start = -113, -1475
+delta = 0.505, 0.74
+
+[BG Concrete 5]
+type  = Normal
+spriteno = 1015, 4
+ID = 5
+start = -288, -1411
+delta = 0.505, 0.74
+
+[BG Concrete 6]
+type  = Normal
+spriteno = 1015, 5
+ID = 5
+start = -192, -1411
+delta = 0.505, 0.74
+
+[BG Concrete 7]
+type  = Normal
+spriteno = 1015, 6
+ID = 5
+start = 181, -1411
+delta = 0.505, 0.74
+
+[BG 35F]
+type  = Normal
+spriteno = 1015, 12
+ID = 5
+start = -64, -1475
+delta = 0.505, 0.74
+
+;-----------------------------------------------------------------------------
+[BG Rails 1]
+type  = Normal
+spriteno = 1020, 0
+ID = 1
+start = -288, -419
+delta = 0.505, 0.74
+
+[BG Rails 2]
+type  = Anim
+actionno = 1020
+ID = 1
+start = 287, -419
+delta = 0.505, 0.74
+
+[Begin Action 1020]
+1020, 0, 0, 0, 1, H
+
+[BG Rails 3]
+type  = Normal
+spriteno = 1020, 1
+ID = 1
+start = 0, -419
+delta = 0.505, 0.74
+
+[BG Rails 4]
+type  = Normal
+spriteno = 1020, 2
+ID = 2
+start = -480, -451
+delta = 0.505, 0.74
+
+[BG Rails 5]
+type  = Normal
+spriteno = 1020, 2
+ID = 3
+start = 288, 214
+delta = 0.505, 0.74
+
+[BG Rails 6]
+type  = Normal
+spriteno = 1020, 2
+ID = 4
+start = 1056, 214
+delta = 0.505, 0.74
+
+;-----------------------------------------------------------------------------
+[BG Outside 1]
+type  = Normal
+spriteno = 1030, 0
+ID = 5
+start = -288, -1763
+delta = 0.505, 0.74
+
+[BG Outside 2]
+type  = Anim
+actionno = 1030
+ID = 5
+start = 287, -1763
+delta = 0.505, 0.74
+
+[Begin Action 1030]
+1030, 0, 0, 0, 1, H
+
+[BG Outside 3]
+type  = Normal
+spriteno = 1030, 1
+ID = 5
+start = 0, -1689
+delta = 0.505, 0.74
+
+[BG Outside 4]
+type  = Normal
+spriteno = 1030, 2
+ID = 5
+start = -288, -1834
+delta = 0.505, 0.74
+mask = 1
+
+[BG Outside 5]
+type  = Anim
+actionno = 1031
+ID = 5
+start = 287, -1834
+delta = 0.505, 0.74
+mask = 1
+
+[Begin Action 1031]
+1030, 2, 0, 0, 1, H
+
+[BG Outside 6]
+type  = Normal
+spriteno = 1030, 3
+ID = 5
+start = -288, -1880
+delta = 0.505, 0.74
+mask = 1
+
+[BG Outside 6]
+type  = Anim
+actionno = 1032
+ID = 5
+start = 287, -1880
+delta = 0.505, 0.74
+mask = 1
+
+[Begin Action 1032]
+1030, 3, 0, 0, 1, H
+
+[BG Outside 7]
+type  = Normal
+spriteno = 1030, 4
+ID = 5
+start = 32, -1795
+delta = 0.505, 0.74
+mask = 1
+
+;-----------------------------------------------------------------------------
+[BG Green 1]
+type  = Anim
+actionno = 1035
+ID = 2
+start = -320, -675
+delta = 0.505, 0.74
+
+[Begin Action 1035]
+1035, 0, 0, 0, 731
+1035, 1, 0, 0, 1
+1035, 0, 0, 0, 35
+1035, 1, 0, 0, 1
+1035, 0, 0, 0, 1
+1035, 1, 0, 0, 1
+1035, 0, 0, 0, 1
+1035, 1, 0, 0, 35
+1035, 2, 0, 0, 1
+1035, 1, 0, 0, 35
+1035, 2, 0, 0, 1
+1035, 1, 0, 0, 1
+1035, 2, 0, 0, 1
+1035, 1, 0, 0, 1
+1035, 2, 0, 0, -1
+
+[BG Green 2]
+type  = Anim
+actionno = 1036
+ID = 2
+start = -160, -675
+delta = 0.505, 0.74
+
+[Begin Action 1036]
+1036, 0, 0, 0, 806
+1036, 1, 0, 0, 1
+1036, 0, 0, 0, 35
+1036, 1, 0, 0, 1
+1036, 0, 0, 0, 1
+1036, 1, 0, 0, 1
+1036, 0, 0, 0, 1
+1036, 1, 0, 0, 35
+1036, 2, 0, 0, 1
+1036, 1, 0, 0, 35
+1036, 2, 0, 0, 1
+1036, 1, 0, 0, 1
+1036, 2, 0, 0, 1
+1036, 1, 0, 0, 1
+1036, 2, 0, 0, -1
+
+[BG Green 3]
+type  = Anim
+actionno = 1037
+ID = 2
+start = 0, -675
+delta = 0.505, 0.74
+
+[Begin Action 1037]
+1037, 0, 0, 0, 881
+1037, 1, 0, 0, 1
+1037, 0, 0, 0, 35
+1037, 1, 0, 0, 1
+1037, 0, 0, 0, 1
+1037, 1, 0, 0, 1
+1037, 0, 0, 0, 1
+1037, 1, 0, 0, 35
+1037, 2, 0, 0, 1
+1037, 1, 0, 0, 35
+1037, 2, 0, 0, 1
+1037, 1, 0, 0, 1
+1037, 2, 0, 0, 1
+1037, 1, 0, 0, 1
+1037, 2, 0, 0, -1
+
+[BG Green 4]
+type  = Anim
+actionno = 1038
+ID = 2
+start = 160, -675
+delta = 0.505, 0.74
+
+[Begin Action 1038]
+1038, 0, 0, 0, 956
+1038, 1, 0, 0, 1
+1038, 0, 0, 0, 35
+1038, 1, 0, 0, 1
+1038, 0, 0, 0, 1
+1038, 1, 0, 0, 1
+1038, 0, 0, 0, 1
+1038, 1, 0, 0, 35
+1038, 2, 0, 0, 1
+1038, 1, 0, 0, 35
+1038, 2, 0, 0, 1
+1038, 1, 0, 0, 1
+1038, 2, 0, 0, 1
+1038, 1, 0, 0, 1
+1038, 2, 0, 0, -1
+
+[BG Green 5]
+type  = Normal
+spriteno = 1039, 0
+ID = 3
+start = 320, -10
+delta = 0.505, 0.74
+
+[BG Green 1]
+type  = Anim
+actionno = 1045
+ID = 3
+start = 448, -10
+delta = 0.505, 0.74
+
+[Begin Action 1045]
+1035, 0, 0, 0, 1194
+1035, 1, 0, 0, 1
+1035, 0, 0, 0, 35
+1035, 1, 0, 0, 1
+1035, 0, 0, 0, 1
+1035, 1, 0, 0, 1
+1035, 0, 0, 0, 1
+1035, 1, 0, 0, 35
+1035, 2, 0, 0, 1
+1035, 1, 0, 0, 35
+1035, 2, 0, 0, 1
+1035, 1, 0, 0, 1
+1035, 2, 0, 0, 1
+1035, 1, 0, 0, 1
+1035, 2, 0, 0, -1
+
+[BG Green 2]
+type  = Anim
+actionno = 1046
+ID = 3
+start = 608, -10
+delta = 0.505, 0.74
+
+[Begin Action 1046]
+1036, 0, 0, 0, 1269
+1036, 1, 0, 0, 1
+1036, 0, 0, 0, 35
+1036, 1, 0, 0, 1
+1036, 0, 0, 0, 1
+1036, 1, 0, 0, 1
+1036, 0, 0, 0, 1
+1036, 1, 0, 0, 35
+1036, 2, 0, 0, 1
+1036, 1, 0, 0, 35
+1036, 2, 0, 0, 1
+1036, 1, 0, 0, 1
+1036, 2, 0, 0, 1
+1036, 1, 0, 0, 1
+1036, 2, 0, 0, -1
+
+[BG Green 3]
+type  = Anim
+actionno = 1047
+ID = 3
+start = 768, -10
+delta = 0.505, 0.74
+
+[Begin Action 1047]
+1037, 0, 0, 0, 1344
+1037, 1, 0, 0, 1
+1037, 0, 0, 0, 35
+1037, 1, 0, 0, 1
+1037, 0, 0, 0, 1
+1037, 1, 0, 0, 1
+1037, 0, 0, 0, 1
+1037, 1, 0, 0, 35
+1037, 2, 0, 0, 1
+1037, 1, 0, 0, 35
+1037, 2, 0, 0, 1
+1037, 1, 0, 0, 1
+1037, 2, 0, 0, 1
+1037, 1, 0, 0, 1
+1037, 2, 0, 0, -1
+
+[BG Green 4]
+type  = Anim
+actionno = 1048
+ID = 3
+start = 928, -10
+delta = 0.505, 0.74
+
+[Begin Action 1048]
+1038, 0, 0, 0, 1419
+1038, 1, 0, 0, 1
+1038, 0, 0, 0, 35
+1038, 1, 0, 0, 1
+1038, 0, 0, 0, 1
+1038, 1, 0, 0, 1
+1038, 0, 0, 0, 1
+1038, 1, 0, 0, 35
+1038, 2, 0, 0, 1
+1038, 1, 0, 0, 35
+1038, 2, 0, 0, 1
+1038, 1, 0, 0, 1
+1038, 2, 0, 0, 1
+1038, 1, 0, 0, 1
+1038, 2, 0, 0, -1
+
+[BG Green 1]
+type  = Anim
+actionno = 1055
+ID = 4
+start = 1216, -10
+delta = 0.505, 0.74
+
+[Begin Action 1055]
+1035, 0, 0, 0, 1528
+1035, 1, 0, 0, 1
+1035, 0, 0, 0, 35
+1035, 1, 0, 0, 1
+1035, 0, 0, 0, 1
+1035, 1, 0, 0, 1
+1035, 0, 0, 0, 1
+1035, 1, 0, 0, 35
+1035, 2, 0, 0, 1
+1035, 1, 0, 0, 35
+1035, 2, 0, 0, 1
+1035, 1, 0, 0, 1
+1035, 2, 0, 0, 1
+1035, 1, 0, 0, 1
+1035, 2, 0, 0, -1
+
+[BG Green 2]
+type  = Anim
+actionno = 1066
+ID = 4
+start = 1376, -10
+delta = 0.505, 0.74
+
+[Begin Action 1066]
+1036, 0, 0, 0, 1603
+1036, 1, 0, 0, 1
+1036, 0, 0, 0, 35
+1036, 1, 0, 0, 1
+1036, 0, 0, 0, 1
+1036, 1, 0, 0, 1
+1036, 0, 0, 0, 1
+1036, 1, 0, 0, 35
+1036, 2, 0, 0, 1
+1036, 1, 0, 0, 35
+1036, 2, 0, 0, 1
+1036, 1, 0, 0, 1
+1036, 2, 0, 0, 1
+1036, 1, 0, 0, 1
+1036, 2, 0, 0, -1
+
+[BG Green 3]
+type  = Anim
+actionno = 1067
+ID = 4
+start = 1536, -10
+delta = 0.505, 0.74
+
+[Begin Action 1067]
+1037, 0, 0, 0, 1678
+1037, 1, 0, 0, 1
+1037, 0, 0, 0, 35
+1037, 1, 0, 0, 1
+1037, 0, 0, 0, 1
+1037, 1, 0, 0, 1
+1037, 0, 0, 0, 1
+1037, 1, 0, 0, 35
+1037, 2, 0, 0, 1
+1037, 1, 0, 0, 35
+1037, 2, 0, 0, 1
+1037, 1, 0, 0, 1
+1037, 2, 0, 0, 1
+1037, 1, 0, 0, 1
+1037, 2, 0, 0, -1
+
+[BG Green 4]
+type  = Anim
+actionno = 1078
+ID = 4
+start = 1696, -10
+delta = 0.505, 0.74
+
+[Begin Action 1078]
+1038, 0, 0, 0, 1753
+1038, 1, 0, 0, 1
+1038, 0, 0, 0, 35
+1038, 1, 0, 0, 1
+1038, 0, 0, 0, 1
+1038, 1, 0, 0, 1
+1038, 0, 0, 0, 1
+1038, 1, 0, 0, 35
+1038, 2, 0, 0, 1
+1038, 1, 0, 0, 35
+1038, 2, 0, 0, 1
+1038, 1, 0, 0, 1
+1038, 2, 0, 0, 1
+1038, 1, 0, 0, 1
+1038, 2, 0, 0, -1
+
+;-----------------------------------------------------------------------------
+[BG Lights A 1]
+type  = Anim
+actionno = 1025
+ID = 2
+start = -224, -781
+delta = 0.505, 0.74
+
+[Begin Action 1025]
+1025, 0, 0, 0, 5
+1025, 1, 0, 0, 5
+1025, 2, 0, 0, 5
+1025, 3, 0, 0, 5
+1025, 4, 0, 0, 5
+1025, 5, 0, 0, 5
+1025, 6, 0, 0, 5
+1025, 7, 0, 0, 5
+
+[BG Lights A 2]
+type  = Anim
+actionno = 1025
+ID = 2
+start = -224, -653
+delta = 0.505, 0.74
+
+[BG Lights A 3]
+type  = Anim
+actionno = 1025
+ID = 2
+start = -224, -525
+delta = 0.505, 0.74
+
+[BG Lights A 4]
+type  = Anim
+actionno = 1026
+ID = 2
+start = -224, -451
+delta = 0.505, 0.74
+
+[Begin Action 1026]
+1025, 3, 0, 0, 5
+1025, 4, 0, 0, 5
+1025, 5, 0, 0, 5
+1025, 6, 0, 0, 5
+1025, 7, 0, 0, 5
+1025, 0, 0, 0, 5
+1025, 1, 0, 0, 5
+1025, 2, 0, 0, 5
+
+[BG Lights A 1]
+type  = Anim
+actionno = 1027
+ID = 2
+start = 223, -781
+delta = 0.505, 0.74
+
+[Begin Action 1027]
+1025, 0, 0, 0, 5, H
+1025, 1, 0, 0, 5, H
+1025, 2, 0, 0, 5, H
+1025, 3, 0, 0, 5, H
+1025, 4, 0, 0, 5, H
+1025, 5, 0, 0, 5, H
+1025, 6, 0, 0, 5, H
+1025, 7, 0, 0, 5, H
+
+[BG Lights A 2]
+type  = Anim
+actionno = 1027
+ID = 2
+start = 223, -653
+delta = 0.505, 0.74
+
+[BG Lights A 3]
+type  = Anim
+actionno = 1027
+ID = 2
+start = 223, -525
+delta = 0.505, 0.74
+
+[BG Lights A 4]
+type  = Anim
+actionno = 1028
+ID = 2
+start = 223, -451
+delta = 0.505, 0.74
+
+[Begin Action 1028]
+1025, 3, 0, 0, 5, H
+1025, 4, 0, 0, 5, H
+1025, 5, 0, 0, 5, H
+1025, 6, 0, 0, 5, H
+1025, 7, 0, 0, 5, H
+1025, 0, 0, 0, 5, H
+1025, 1, 0, 0, 5, H
+1025, 2, 0, 0, 5, H
+
+[BG Lights A 1]
+type  = Anim
+actionno = 1025
+ID = 3
+start = 544, -116
+delta = 0.505, 0.74
+
+[BG Lights A 2]
+type  = Anim
+actionno = 1025
+ID = 3
+start = 544, 12
+delta = 0.505, 0.74
+
+[BG Lights A 3]
+type  = Anim
+actionno = 1025
+ID = 3
+start = 544, 140
+delta = 0.505, 0.74
+
+[BG Lights A 1]
+type  = Anim
+actionno = 1027
+ID = 3
+start = 991, -116
+delta = 0.505, 0.74
+
+[BG Lights A 2]
+type  = Anim
+actionno = 1027
+ID = 3
+start = 991, 12
+delta = 0.505, 0.74
+
+[BG Lights A 3]
+type  = Anim
+actionno = 1027
+ID = 3
+start = 991, 140
+delta = 0.505, 0.74
+
+[BG Lights A 1]
+type  = Anim
+actionno = 1025
+ID = 4
+start = 1312, -116
+delta = 0.505, 0.74
+
+[BG Lights A 2]
+type  = Anim
+actionno = 1025
+ID = 4
+start = 1312, 12
+delta = 0.505, 0.74
+
+[BG Lights A 3]
+type  = Anim
+actionno = 1025
+ID = 4
+start = 1312, 140
+delta = 0.505, 0.74
+
+[BG Lights A 4]
+type  = Anim
+actionno = 1026
+ID = 4
+start = 1312, 214
+delta = 0.505, 0.74
+
+[BG Lights A 1]
+type  = Anim
+actionno = 1027
+ID = 4
+start = 1759, -116
+delta = 0.505, 0.74
+
+[BG Lights A 2]
+type  = Anim
+actionno = 1027
+ID = 4
+start = 1759, 12
+delta = 0.505, 0.74
+
+[BG Lights A 3]
+type  = Anim
+actionno = 1027
+ID = 4
+start = 1759, 140
+delta = 0.505, 0.74
+
+[BG Lights A 4]
+type  = Anim
+actionno = 1028
+ID = 4
+start = 1759, 214
+delta = 0.505, 0.74
+
+;-----------------------------------------------------------------------------
+[BG Lights B 1]
+type  = Anim
+actionno = 1029
+ID = 2
+start = -107, -580
+delta = 0.505, 0.74
+
+[Begin Action 1029]
+1026, 0, 0, 0, 5
+1026, 1, 0, 0, 5
+1026, 2, 0, 0, 5
+1026, 3, 0, 0, 5
+
+[BG Lights B 2]
+type  = Anim
+actionno = 1029
+ID = 2
+start = 99, -580
+delta = 0.505, 0.74
+
+[BG Lights B 1]
+type  = Anim
+actionno = 1029
+ID = 3
+start = 661, 85
+delta = 0.505, 0.74
+
+[BG Lights B 2]
+type  = Anim
+actionno = 1029
+ID = 3
+start = 867, 85
+delta = 0.505, 0.74
+
+[BG Lights B 1]
+type  = Anim
+actionno = 1029
+ID = 4
+start = 1429, 85
+delta = 0.505, 0.74
+
+[BG Lights B 2]
+type  = Anim
+actionno = 1029
+ID = 4
+start = 1635, 85
+delta = 0.505, 0.74
+
+;-----------------------------------------------------------------------------
+[BG Grate 1]
+type  = Normal
+spriteno = 1040, 0
+ID = 6
+start = 224, -320
+delta = 0.505, 0.74
+
+[BG Grate 2]
+type  = Normal
+spriteno = 1040, 0
+ID = 6
+start = 224, -552
+delta = 0.505, 0.74
+
+[BG Grate 3]
+type  = Normal
+spriteno = 1040, 1
+ID = 6
+start = 224, -424
+delta = 0.505, 0.74
+
+[BG Grate 1]
+type  = Normal
+spriteno = 1040, 0
+ID = 4
+start = 992, 124
+delta = 0.505, 0.74
+
+[BG Grate 2]
+type  = Normal
+spriteno = 1040, 0
+ID = 4
+start = 992, -108
+delta = 0.505, 0.74
+
+[BG Grate 3]
+type  = Normal
+spriteno = 1040, 1
+ID = 4
+start = 992, 20
+delta = 0.505, 0.74
+
+;-----------------------------------------------------------------------------
+[BG Cat 1]
+type  = Anim
+actionno = 1130
+ID = 2
+start = 404, -483
+delta = 0.505, 0.74
+velocity = -0.5, 0
+mask = 1
+
+[BG Cat 2]
+type  = Anim
+actionno = 1130
+ID = 5
+start = 2580, -1058 ;204, -1058
+delta = 0.505, 0.74
+velocity = -0.5, 0
+mask = 1
+
+[Begin Action 1130]
+1130, 0, 0, 0, 10
+1130, 1, 0, 0, 10
+1130, 2, 0, 0, 10
+1130, 3, 0, 0, 10
+1130, 4, 0, 0, 10
+1130, 5, 0, 0, 10
+
+;-----------------------------------------------------------------------------
+[BG Dummy]
+type  = Dummy
+ID = 20
+start = 0, 0
+;positionlink = 1
+
+;-----------------------------------------------------------------------------
+[BG Floor 1]
+type  = Normal
+spriteno = 1000, 0
+ID = 8
+start = 0, 220
+delta = 1, 1
+
+[BG Floor 2]
+type  = Normal
+spriteno = 1000, 1
+ID = 8
+start = -413, 220
+delta = 1, 1
+
+[BG Floor 3]
+type  = Anim
+actionno = 1000
+ID = 8
+start = 414, 220
+delta = 1, 1
+
+[Begin Action 1000]
+1000, 1, 0, 0, 1, H
+
+[BG Floor 4]
+type  = Parallax ;Normal
+spriteno = 1000, 2
+ID = 8
+start = 0, 197
+xscale = 0.75, 1
+delta = 0.75, 1 ;1, 1
+
+[BG Barrel]
+type  = Normal
+spriteno = 1120, 0
+ID = 8
+start = 275, 197
+delta = 0.85, 1
+mask = 1
+
+;-----------------------------------------------------------------------------
+[BG Girder Far 1]
+type  = Normal
+spriteno = 1110, 1
+ID = 9
+start = -286, -170 ; -140 ;-3
+delta = 1, 1
+layerno = 1
+velocity = 0, 0 ;0, 1.875 ;1.428, 0
+mask = 1
+
+[BG Girder Far 2]
+type  = Normal
+spriteno = 1110, 1
+ID = 9
+start = 256, -170 ; -140 ;-3
+delta = 1, 1
+layerno = 1
+velocity = 0, 0 ;0, 1.875 ;1.875
+mask = 1
+
+[BG Girder Far 3]
+type  = Normal
+spriteno = 1110, 1
+ID = 9
+start = 482, -170 ; -140 ;-3
+delta = 1, 1
+layerno = 1
+velocity = 0, 0 ;0, 1.875 ;1.428, 0
+mask = 1
+
+[BG Girder Far 4]
+type  = Normal
+spriteno = 1110, 1
+ID = 9
+start = 1024, -170 ; -140 ;-3
+delta = 1, 1
+layerno = 1
+velocity = 0, 0 ;0, 1.875 ;1.875
+mask = 1
+
+[BG Girder Far 5]
+type  = Normal
+spriteno = 1110, 1
+ID = 9
+start = 1250, -170 ; -140 ;-3
+delta = 1, 1
+layerno = 1
+velocity = 0, 0 ;0, 1.875 ;1.428, 0
+mask = 1
+
+[BG Girder Near 1]
+type  = Normal
+spriteno = 1110, 0
+ID = 10
+start = -299, -158 ; -127
+delta = 1.05, 1
+layerno = 1
+velocity = 0, 0
+mask = 1
+
+[BG Girder Near 2]
+type  = Normal
+spriteno = 1110, 0
+ID = 10
+start = 269, -158 ; -127
+delta = 1.05, 1
+layerno = 1
+velocity = 0, 0
+mask = 1
+
+[BG Girder Near 3]
+type  = Normal
+spriteno = 1110, 0
+ID = 10
+start = 506, -158 ; -127
+delta = 1.05, 1
+layerno = 1
+velocity = 0, 0
+mask = 1
+
+[BG Girder Near 4]
+type  = Normal
+spriteno = 1110, 0
+ID = 10
+start = 1075, -158 ; -127
+delta = 1.05, 1
+layerno = 1
+velocity = 0, 0
+mask = 1
+
+[BG Girder Near 5]
+type  = Normal
+spriteno = 1110, 0
+ID = 10
+start = 1312, -158 ; -127
+delta = 1.05, 1
+layerno = 1
+velocity = 0, 0
+mask = 1
+
+;-----------------------------------------------------------------------------
+[BG Girder Far Left - Going Up]
+type  = Anim
+actionno = 1200
+ID = 11
+start = -286, -170 ;140
+delta = 1, 1
+layerno = 1
+velocity = 0, 0 ;0, 1.875 ;1.428, 0
+mask = 1
+
+[BG Girder Far Right - Going Up]
+type  = Anim
+actionno = 1200
+ID = 11
+start = 256, -170 ;-140
+delta = 1, 1
+layerno = 1
+velocity = 0, 0 ;0, 1.875 ;1.875
+mask = 1
+
+[Begin Action 1200]
+1110, 1, 0,15, 1
+1110, 1, 0,17, 1
+1110, 1, 0,19, 1
+1110, 1, 0,21, 1
+1110, 1, 0,22, 1
+1110, 1, 0,24, 1
+1110, 1, 0,26, 1
+1110, 1, 0,28, 1
+
+1110, 1, 0, 0, 1
+1110, 1, 0, 2, 1
+1110, 1, 0, 4, 1
+1110, 1, 0, 6, 1
+1110, 1, 0, 7, 1
+1110, 1, 0, 9, 1
+1110, 1, 0,11, 1
+1110, 1, 0,13, 1
+
+[BG Girder Near Left - Going Up]
+type  = Anim
+actionno = 1201
+ID = 12
+start = -299, -158
+delta = 1.05, 1
+layerno = 1
+velocity = 0, 0 ;0, 2  ;1.5, 0
+mask = 1
+
+[BG Girder Near Right - Going Up]
+type  = Anim
+actionno = 1201
+ID = 12 ;13
+start = 269, -158 ;-126
+delta = 1.05, 1 ;1.1, 1   ;1.05, 1
+layerno = 1
+velocity = 0, 0 ;0, 2  ;1.5, 0
+mask = 1
+
+[Begin Action 1201]
+1110, 0, 0,16, 1
+1110, 0, 0,18, 1
+1110, 0, 0,20, 1
+1110, 0, 0,-10, 1
+1110, 0, 0, -8, 1
+1110, 0, 0, -6, 1
+1110, 0, 0, -4, 1
+1110, 0, 0, -2, 1
+
+1110, 0, 0, 0, 1
+1110, 0, 0, 2, 1
+1110, 0, 0, 4, 1
+1110, 0, 0, 6, 1
+1110, 0, 0, 8, 1
+1110, 0, 0,10, 1
+1110, 0, 0,12, 1
+1110, 0, 0,14, 1
+
+;-----------------------------------------------------------------------------
+[BG Girder Far Left - Going Down]
+type  = Anim
+actionno = 1210
+ID = 14
+start = 1250, -798 ;-468 ;-168 ;-286, -168 ; -170
+delta = 1, 1
+layerno = 1
+velocity = 0, 0
+mask = 1
+
+[Begin Action 1210]
+1110, 1, 0,13, 1
+1110, 1, 0,11, 1
+1110, 1, 0, 9, 1
+1110, 1, 0, 7, 1
+1110, 1, 0, 6, 1
+1110, 1, 0, 4, 1
+1110, 1, 0, 2, 1
+1110, 1, 0, 0, 1
+1110, 1, 0,28, 1
+1110, 1, 0,26, 1
+1110, 1, 0,24, 1
+1110, 1, 0,22, 1
+1110, 1, 0,21, 1
+1110, 1, 0,19, 1
+1110, 1, 0,17, 1
+1110, 1, 0,15, 1
+
+[BG Girder Near Left - Going Down]
+type  = Anim
+actionno = 1211
+ID = 15
+start = 1312, -769 ;-457 ;-158 ; -301, -158 ;-299, -158
+delta = 1.05, 1
+layerno = 1
+velocity = 0, 0 ;0, 2  ;1.5, 0
+mask = 1
+
+[Begin Action 1211]
+1110, 0, 0, -4, 1
+1110, 0, 0, -6, 1
+1110, 0, 0, -8, 1
+1110, 0, 0,-10, 1
+1110, 0, 0, 20, 1
+1110, 0, 0, 18, 1
+1110, 0, 0, 16, 1
+1110, 0, 0, 14, 1
+1110, 0, 0, 12, 1
+1110, 0, 0, 10, 1
+1110, 0, 0,  8, 1
+1110, 0, 0,  6, 1
+1110, 0, 0,  4, 1
+1110, 0, 0,  2, 1
+1110, 0, 0,  0, 1
+1110, 0, 0, -2, 1
+
+;-----------------------------------------------------------------------------
+[BG Girder Far Left - Going Up]
+type  = Anim
+actionno = 1220
+ID = 16
+start = 1250, -797
+delta = 1, 1
+layerno = 1
+velocity = 0, 0
+mask = 1
+
+[Begin Action 1220]
+1110, 1, 0, 4, 1
+1110, 1, 0, 6, 1
+1110, 1, 0, 7, 1
+1110, 1, 0, 9, 1
+1110, 1, 0,11, 1
+1110, 1, 0,13, 1
+1110, 1, 0,15, 1
+1110, 1, 0,17, 1
+1110, 1, 0,19, 1
+1110, 1, 0,21, 1
+1110, 1, 0,22, 1
+1110, 1, 0,24, 1
+1110, 1, 0,26, 1
+1110, 1, 0,28, 1
+1110, 1, 0, 0, 1
+1110, 1, 0, 2, 1
+
+[BG Girder Near Left - Going Up]
+type  = Anim
+actionno = 1221
+ID = 17
+start = 1312, -770
+delta = 1.05, 1
+layerno = 1
+velocity = 0, 0
+mask = 1
+
+[Begin Action 1221]
+1110, 0, 0,20, 1
+1110, 0, 0,-10, 1
+1110, 0, 0, -8, 1
+1110, 0, 0, -6, 1
+1110, 0, 0, -4, 1
+1110, 0, 0, -2, 1
+1110, 0, 0, 0, 1
+1110, 0, 0, 2, 1
+1110, 0, 0, 4, 1
+1110, 0, 0, 6, 1
+1110, 0, 0, 8, 1
+1110, 0, 0,10, 1
+1110, 0, 0,12, 1
+1110, 0, 0,14, 1
+1110, 0, 0,16, 1
+1110, 0, 0,18, 1
+
+;=============================================================================
+; Background controllers
+;=============================================================================
+
+[BGCtrlDef 1]
+CtrlID = 1
+
+[BGCtrl 1.0]
+type = VelSet
+time = 0
+y = 1
+
+[BGCtrl 1.1]
+type = VelSet
+time = 665
+y = 0
+
+[BGCtrl 1.10]
+type = VelSet
+time = 1753 ;2265
+y = -1
+
+[BGCtrl 1.11]
+type = VelSet
+time = 2413 ;2925              ; +660
+y = 0
+
+[BGCtrl 1.20]
+type = VelSet
+time = 2713 ;3225
+y = 1
+
+[BGCtrl 1.21]
+type = VelSet
+time = 3373 ;3885        ; +660
+y = 0
+
+[BGCtrl 1.30]
+type = Enable
+time = 667
+value = 0
+
+[BGCtrl 1.31]
+type = Enable
+time = 1751
+value = 1
+
+[BGCtrl 1.32]
+type = Enable
+time = 3375
+value = 0
+
+;-----------------------------------------------------------------------------
+[BGCtrlDef 2]
+CtrlID = 2
+
+[BGCtrl 2.0]
+type = VelSet
+time = 0
+y = 1
+
+[BGCtrl 2.1]
+type = VelSet
+time = 665
+y = 0
+
+[BGCtrl 2.10]
+type = VelSet
+time = 697        ; +32
+x = -1.5
+
+[BGCtrl 2.11]
+type = VelSet
+time = 1721 ;2233
+x = 0
+
+[BGCtrl 2.20]
+type = VelSet
+time = 3405 ;3917
+x = 1.5
+
+[BGCtrl 2.21]
+type = VelSet
+time = 4429 ;5453
+x = 0
+
+[BGCtrl 2.30]
+type = VelSet
+time = 4461 ;5485
+y = 1
+
+[BGCtrl 2.31]
+type = VelSet
+time = 5727 ;6751        ; +1266
+y = 0
+
+[BGCtrl 2.40]
+type = Enable
+time = 1723
+value = 0
+
+[BGCtrl 2.41]
+type = Enable
+time = 3401
+value = 1
+
+[BGCtrl 2.42]
+type = Enable
+time = 5000
+value = 0
+
+;-----------------------------------------------------------------------------
+[BGCtrlDef 3]
+CtrlID = 3
+
+[BGCtrl 3.0]
+type = VelSet
+time = 697
+x = -1.5
+
+[BGCtrl 3.1]
+type = VelSet
+time = 1721 ;2233
+x = 0
+
+[BGCtrl 3.10]
+type = VelSet
+time = 3405 ;3917
+x = 1.5
+
+[BGCtrl 3.11]
+type = VelSet
+time = 4429 ;5453
+x = 0
+
+[BGCtrl 3.22]
+type = Enable
+time = 1723
+value = 0
+
+[BGCtrl 3.23]
+type = Enable
+time = 3401
+value = 1
+
+[BGCtrl 3.24]
+type = Enable
+time = 4431
+value = 0
+
+;-----------------------------------------------------------------------------
+[BGCtrlDef 4]
+CtrlID = 4
+
+[BGCtrl 4.0]
+type = VelSet
+time = 697
+x = -1.5
+
+[BGCtrl 4.1]
+type = VelSet
+time = 1721 ;2233              ; +1536
+x = 0
+
+[BGCtrl 4.10]
+type = VelSet
+time = 1753 ;2265
+y = -1
+
+[BGCtrl 4.11]
+type = VelSet
+time = 2413 ;2925              ; +660
+y = 0
+
+[BGCtrl 4.20]
+type = VelSet
+time = 2713 ;3225
+y = 1
+
+[BGCtrl 4.21]
+type = VelSet
+time = 3373 ;3885        ; +660
+y = 0
+
+[BGCtrl 4.30]
+type = VelSet
+time = 3405 ;3917
+x = 1.5
+
+[BGCtrl 4.31]
+type = VelSet
+time = 4429 ;5453
+x = 0
+
+[BGCtrl 4.42]
+type = Enable
+time = 4431
+value = 0
+
+;-----------------------------------------------------------------------------
+[BGCtrlDef 5]
+CtrlID = 5
+
+[BGCtrl 5.0]
+type = VelSet
+time = 0
+y = 1
+
+[BGCtrl 5.1]
+type = VelSet
+time = 665    ; +665
+y = 0
+
+[BGCtrl 5.10]
+type = VelSet
+time = 4461 ;5485
+y = 1
+
+[BGCtrl 5.11]
+type = VelSet
+time = 5727 ;6751        ; +1266
+y = 0
+
+[BGCtrl 5.20]
+type = Enable
+time = 667
+value = 0
+
+[BGCtrl 5.21]
+type = Enable
+time = 4459
+value = 1
+
+;-----------------------------------------------------------------------------
+[BGCtrlDef 6]
+CtrlID = 6
+
+[BGCtrl 6.0]
+type = VelSet
+time = 697
+x = -1.5
+
+[BGCtrl 6.1]
+type = VelSet
+time = 1721 ;2233
+x = 0
+
+[BGCtrl 6.10]
+type = VelSet
+time = 3405 ;3917
+x = 1.5
+
+[BGCtrl 6.11]
+type = VelSet
+time = 4429 ;5453
+x = 0
+
+[BGCtrl 6.20]
+type = VelSet
+time = 905 ;800
+y = 4
+
+[BGCtrl 6.21]
+type = VelSet
+time = 1016 ;911         ; +111
+y = 0
+
+[BGCtrl 6.30]
+type = VelSet
+time = 4461 ;5485
+y = 1
+
+[BGCtrl 6.31]
+type = VelSet
+time = 5727 ;6751        ; +1266
+y = 0
+
+[BGCtrl 6.40]
+type = Enable
+time = 0
+value = 0
+
+[BGCtrl 6.41]
+type = Enable
+time = 695
+value = 1
+
+[BGCtrl 6.42]
+type = Enable
+time = 1723
+value = 0
+
+[BGCtrl 6.43]
+type = Enable
+time = 3403
+value = 1
+
+[BGCtrl 6.44]
+type = Enable
+time = 5100
+value = 0
+
+;-----------------------------------------------------------------------------
+[BGCtrlDef 7]
+CtrlID = 7
+
+[BGCtrl 7.0]
+type = VelSet
+time = 4461 ;5485
+y = 0.5
+
+[BGCtrl 7.1]
+type = VelSet
+time = 5727 ;6751        ; +1266
+y = 0
+
+[BGCtrl 7.10]
+type = Enable
+time = 0
+value = 0
+
+[BGCtrl 7.11]
+type = Enable
+time = 4459
+value = 1
+
+;-----------------------------------------------------------------------------
+[BGCtrlDef 9]
+CtrlID = 9
+
+[BGCtrl 9.0]
+type = VelSet
+time = 0
+y = 0 ;1.875
+
+[BGCtrl 9.1]
+type = VelSet
+time = 665
+y = 0
+
+[BGCtrl 9.10]
+type = VelSet
+time = 697        ; +32
+x = -1.5 ;-1.428
+
+[BGCtrl 9.11]
+type = VelSet
+time = 1721 ;2233
+x = 0
+
+[BGCtrl 9.50]
+type = Enable
+time = 0
+value = 0
+
+[BGCtrl 9.51]
+type = Enable
+time = 665
+value = 1
+
+[BGCtrl 9.52]
+type = Enable
+time = 1753
+value = 0
+
+[BGCtrl 9.53]
+type = PosAdd
+time = 2413
+y = -7
+
+[BGCtrl 9.54]
+type = Enable
+time = 2413
+value = 1
+
+[BGCtrl 9.54]
+type = Enable
+time = 2713
+value = 0
+
+[BGCtrl 9.56]
+type = Enable
+time = 3373
+value = 1
+
+[BGCtrl 9.57]
+type = PosAdd
+time = 3373
+y = 7
+
+[BGCtrl 9.58]
+type = VelSet
+time = 3405
+x = 1.5
+
+[BGCtrl 9.59]
+type = VelSet
+time = 4429
+x = 0
+
+[BGCtrl 9.60]
+type = Enable
+time = 4461
+value = 0
+
+[BGCtrl 9.61]
+type = Enable
+time = 5727
+value = 1
+
+[BGCtrl 9.62]
+type = PosAdd
+time = 5727
+y = 4
+
+;-----------------------------------------------------------------------------
+[BGCtrlDef 10]
+CtrlID = 10
+
+[BGCtrl 10.0]
+type = VelSet
+time = 0
+y = 0 ;2
+
+[BGCtrl 10.1]
+type = VelSet
+time = 665
+y = 0
+
+[BGCtrl 10.10]
+type = VelSet
+time = 697        ; +32
+x = -1.575 ;-1.65
+
+[BGCtrl 10.11]
+type = VelSet
+time = 1721 ;2233
+x = 0
+
+[BGCtrl 10.50]
+type = Enable
+time = 0
+value = 0
+
+[BGCtrl 10.51]
+type = Enable
+time = 665
+value = 1
+
+[BGCtrl 10.52]
+type = Enable
+time = 1753
+value = 0
+
+[BGCtrl 10.53]
+type = PosAdd
+time = 2413
+y = -7
+
+[BGCtrl 10.54]
+type = Enable
+time = 2413
+value = 1
+
+[BGCtrl 10.55]
+type = Enable
+time = 2713
+value = 0
+
+[BGCtrl 10.56]
+type = Enable
+time = 3373
+value = 1
+
+[BGCtrl 10.57]
+type = PosAdd
+time = 3373
+y = 7
+
+[BGCtrl 10.58]
+type = VelSet
+time = 3405
+x = 1.575
+
+[BGCtrl 10.59]
+type = VelSet
+time = 4429
+x = 0
+
+[BGCtrl 10.60]
+type = Enable
+time = 4461
+value = 0
+
+[BGCtrl 10.61]
+type = Enable
+time = 5727
+value = 1
+
+[BGCtrl 10.62]
+type = PosAdd
+time = 5727
+y = 4
+
+;-----------------------------------------------------------------------------
+[BGCtrlDef 11]
+CtrlID = 11
+
+[BGCtrl 11.0]
+type = Enable
+time = 665
+value = 0
+
+[BGCtrl 11.1]
+type = Enable
+time = 4461
+value = 1
+
+[BGCtrl 11.2]
+type = Enable
+time = 5727
+value = 0
+
+;-----------------------------------------------------------------------------
+[BGCtrlDef 12]
+CtrlID = 12
+
+[BGCtrl 12.0]
+type = Enable
+time = 665
+value = 0
+
+[BGCtrl 12.1]
+type = Enable
+time = 4461
+value = 1
+
+[BGCtrl 12.2]
+type = Enable
+time = 5727
+value = 0
+
+;-----------------------------------------------------------------------------
+[BGCtrlDef 14]
+CtrlID = 14
+
+[BGCtrl 14.0]
+type = Enable
+time = 0
+value = 1
+
+[BGCtrl 14.1]
+type = Enable
+time = 1753
+value = 1
+
+[BGCtrl 14.2]
+type = Enable
+time = 2413
+value = 0
+
+[BGCtrl 14.10]
+type = VelSet
+time = 697
+x = -1.5
+
+[BGCtrl 14.11]
+type = VelSet
+time = 1721
+x = 0
+
+[BGCtrl 14.20]
+type = PosAdd
+time = 1753
+y = 600
+
+;-----------------------------------------------------------------------------
+[BGCtrlDef 15]
+CtrlID = 15
+
+[BGCtrl 15.0]
+type = Enable
+time = 0
+value = 1
+
+[BGCtrl 15.1]
+type = Enable
+time = 1753
+value = 1
+
+[BGCtrl 15.2]
+type = Enable
+time = 2413
+value = 0
+
+[BGCtrl 15.10]
+type = VelSet
+time = 697
+x = -1.575
+
+[BGCtrl 15.11]
+type = VelSet
+time = 1721
+x = 0
+
+[BGCtrl 15.20]
+type = PosAdd
+time = 1753
+y = 600
+
+;-----------------------------------------------------------------------------
+[BGCtrlDef 16]
+CtrlID = 16
+
+[BGCtrl 16.0]
+type = Enable
+time = 0
+value = 1
+
+[BGCtrl 16.1]
+type = Enable
+time = 1753
+value = 1
+
+[BGCtrl 16.2]
+type = Enable
+time = 3373
+value = 0
+
+[BGCtrl 16.10]
+type = VelSet
+time = 697
+x = -1.5
+
+[BGCtrl 16.11]
+type = VelSet
+time = 1721
+x = 0
+
+[BGCtrl 16.20]
+type = PosAdd
+time = 2713
+y = 600
+
+;-----------------------------------------------------------------------------
+[BGCtrlDef 17]
+CtrlID = 17
+
+[BGCtrl 17.0]
+type = Enable
+time = 0
+value = 1
+
+[BGCtrl 17.1]
+type = Enable
+time = 1753
+value = 1
+
+[BGCtrl 17.2]
+type = Enable
+time = 3373
+value = 0
+
+[BGCtrl 17.10]
+type = VelSet
+time = 697
+x = -1.575
+
+[BGCtrl 17.11]
+type = VelSet
+time = 1721
+x = 0
+
+[BGCtrl 17.20]
+type = PosAdd
+time = 2713
+y = 600
+
+;-----------------------------------------------------------------------------
+[BGCtrlDef 8]
+CtrlID = 8, 20
+
+[BGCtrl 8.0]
+type = SinY
+time = 1
+value = 2, 4
+
+[BGCtrl 8.1]
+type = SinY
+time = 82
+value = 2, 4
+
+[BGCtrl 8.2]
+type = SinY
+time = 162
+value = 2, 4
+
+[BGCtrl 8.3]
+type = SinY
+time = 205
+value = 2, 4
+
+[BGCtrl 8.4]
+type = SinY
+time = 254
+value = 2, 4
+
+[BGCtrl 8.5]
+type = SinY
+time = 294
+value = 2, 4
+
+[BGCtrl 8.6]
+type = SinY
+time = 364
+value = 2, 4
+
+[BGCtrl 8.7]
+type = SinY
+time = 425
+value = 2, 4
+
+[BGCtrl 8.8]
+type = SinY
+time = 487
+value = 2, 4
+
+[BGCtrl 8.9]
+type = SinY
+time = 567
+value = 2, 4
+
+[BGCtrl 8.10]
+type = SinY
+time = 627
+value = 2, 4
+
+[BGCtrl 8.11]
+type = SinY
+time = 665
+value = 2, 4
+
+[BGCtrl 8.12]
+type = SinY
+time = 697
+value = 2, 4
+
+[BGCtrl 8.13]
+type = SinY
+time = 724
+value = 2, 4
+
+[BGCtrl 8.14]
+type = SinY
+time = 805
+value = 2, 4
+
+[BGCtrl 8.15]
+type = SinY
+time = 863
+value = 2, 4
+
+[BGCtrl 8.16]
+type = SinY
+time = 923
+value = 2, 4
+
+[BGCtrl 8.17]
+type = SinY
+time = 993
+value = 2, 4
+
+[BGCtrl 8.18]
+type = SinY
+time = 1055
+value = 2, 4
+
+[BGCtrl 8.19]
+type = SinY
+time = 1186
+value = 2, 4
+
+[BGCtrl 8.20]
+type = SinY
+time = 1178
+value = 2, 4
+
+[BGCtrl 8.21]
+type = SinY
+time = 1221
+value = 2, 4
+
+[BGCtrl 8.22]
+type = SinY
+time = 1270
+value = 2, 4
+
+[BGCtrl 8.23]
+type = SinY
+time = 1330
+value = 2, 4
+
+[BGCtrl 8.24]
+type = SinY
+time = 1390
+value = 2, 4
+
+[BGCtrl 8.25]
+type = SinY
+time = 1444
+value = 2, 4
+
+[BGCtrl 8.26]
+type = SinY
+time = 1485
+value = 2, 4
+
+[BGCtrl 8.27]
+type = SinY
+time = 1554
+value = 2, 4
+
+[BGCtrl 8.28]
+type = SinY
+time = 1604
+value = 2, 4
+
+[BGCtrl 8.29]
+type = SinY
+time = 1664
+value = 2, 4
+
+[BGCtrl 8.30]
+type = SinY
+time = 1721
+value = 2, 4
+
+[BGCtrl 8.31]
+type = SinY
+time = 1753
+value = 2, 4
+
+[BGCtrl 8.32]
+type = SinY
+time = 1835
+value = 2, 4
+
+[BGCtrl 8.33]
+type = SinY
+time = 1915
+value = 2, 4
+
+[BGCtrl 8.34]
+type = SinY
+time = 1958
+value = 2, 4
+
+[BGCtrl 8.35]
+type = SinY
+time = 2007
+value = 2, 4
+
+[BGCtrl 8.36]
+type = SinY
+time = 2047
+value = 2, 4
+
+[BGCtrl 8.37]
+type = SinY
+time = 2117
+value = 2, 4
+
+[BGCtrl 8.38]
+type = SinY
+time = 2178
+value = 2, 4
+
+[BGCtrl 8.39]
+type = SinY
+time = 2240
+value = 2, 4
+
+[BGCtrl 8.40]
+type = SinY
+time = 2320
+value = 2, 4
+
+[BGCtrl 8.41]
+type = SinY
+time = 2380
+value = 2, 4
+
+[BGCtrl 8.42]
+type = SinY
+time = 2713
+value = 2, 4
+
+[BGCtrl 8.43]
+type = SinY
+time = 2795
+value = 2, 4
+
+[BGCtrl 8.44]
+type = SinY
+time = 2875
+value = 2, 4
+
+[BGCtrl 8.45]
+type = SinY
+time = 2918
+value = 2, 4
+
+[BGCtrl 8.46]
+type = SinY
+time = 2967
+value = 2, 4
+
+[BGCtrl 8.47]
+type = SinY
+time = 3007
+value = 2, 4
+
+[BGCtrl 8.48]
+type = SinY
+time = 3077
+value = 2, 4
+
+[BGCtrl 8.49]
+type = SinY
+time = 3138
+value = 2, 4
+
+[BGCtrl 8.50]
+type = SinY
+time = 3200
+value = 2, 4
+
+[BGCtrl 8.51]
+type = SinY
+time = 3280
+value = 2, 4
+
+[BGCtrl 8.52]
+type = SinY
+time = 3340
+value = 2, 4
+
+[BGCtrl 8.53]
+type = SinY
+time = 2413
+value = 2, 4
+
+[BGCtrl 8.54]
+type = SinY
+time = 3373
+value = 2, 4
+
+[BGCtrl 8.55]
+type = SinY
+time = 3405
+value = 2, 4
+
+[BGCtrl 8.56]
+type = SinY
+time = 3432
+value = 2, 4
+
+[BGCtrl 8.57]
+type = SinY
+time = 3513
+value = 2, 4
+
+[BGCtrl 8.58]
+type = SinY
+time = 3571
+value = 2, 4
+
+[BGCtrl 8.59]
+type = SinY
+time = 3631
+value = 2, 4
+
+[BGCtrl 8.60]
+type = SinY
+time = 3701
+value = 2, 4
+
+[BGCtrl 8.61]
+type = SinY
+time = 3763
+value = 2, 4
+
+[BGCtrl 8.62]
+type = SinY
+time = 3894
+value = 2, 4
+
+[BGCtrl 8.63]
+type = SinY
+time = 3886
+value = 2, 4
+
+[BGCtrl 8.64]
+type = SinY
+time = 3929
+value = 2, 4
+
+[BGCtrl 8.65]
+type = SinY
+time = 3978
+value = 2, 4
+
+[BGCtrl 8.66]
+type = SinY
+time = 4038
+value = 2, 4
+
+[BGCtrl 8.67]
+type = SinY
+time = 4098
+value = 2, 4
+
+[BGCtrl 8.68]
+type = SinY
+time = 4152
+value = 2, 4
+
+[BGCtrl 8.69]
+type = SinY
+time = 4193
+value = 2, 4
+
+[BGCtrl 8.70]
+type = SinY
+time = 4262
+value = 2, 4
+
+[BGCtrl 8.71]
+type = SinY
+time = 4312
+value = 2, 4
+
+[BGCtrl 8.72]
+type = SinY
+time = 4372
+value = 2, 4
+
+[BGCtrl 8.73]
+type = SinY
+time = 4429
+value = 2, 4
+
+[BGCtrl 8.74]
+type = SinY
+time = 4461
+value = 2, 4
+
+[BGCtrl 8.75]
+type = SinY
+time = 4488
+value = 2, 4
+
+[BGCtrl 8.76]
+type = SinY
+time = 4569
+value = 2, 4
+
+[BGCtrl 8.77]
+type = SinY
+time = 4627
+value = 2, 4
+
+[BGCtrl 8.78]
+type = SinY
+time = 4687
+value = 2, 4
+
+[BGCtrl 8.79]
+type = SinY
+time = 4757
+value = 2, 4
+
+[BGCtrl 8.80]
+type = SinY
+time = 4819
+value = 2, 4
+
+[BGCtrl 8.81]
+type = SinY
+time = 4950
+value = 2, 4
+
+[BGCtrl 8.82]
+type = SinY
+time = 4942
+value = 2, 4
+
+[BGCtrl 8.83]
+type = SinY
+time = 4985
+value = 2, 4
+
+[BGCtrl 8.84]
+type = SinY
+time = 5034
+value = 2, 4
+
+[BGCtrl 8.85]
+type = SinY
+time = 5094
+value = 2, 4
+
+[BGCtrl 8.86]
+type = SinY
+time = 5154
+value = 2, 4
+
+[BGCtrl 8.87]
+type = SinY
+time = 5208
+value = 2, 4
+
+[BGCtrl 8.88]
+type = SinY
+time = 5249
+value = 2, 4
+
+[BGCtrl 8.89]
+type = SinY
+time = 5318
+value = 2, 4
+
+[BGCtrl 8.90]
+type = SinY
+time = 5368
+value = 2, 4
+
+[BGCtrl 8.91]
+type = SinY
+time = 5428
+value = 2, 4
+
+[BGCtrl 8.92]
+type = SinY
+time = 5485
+value = 2, 4
+
+[BGCtrl 8.93]
+type = SinY
+time = 5528
+value = 2, 4
+
+[BGCtrl 8.94]
+type = SinY
+time = 5585
+value = 2, 4
+
+[BGCtrl 8.95]
+type = SinY
+time = 5628
+value = 2, 4
+
+[BGCtrl 8.96]
+type = SinY
+time = 5685
+value = 2, 4
+
+[BGCtrl 8.97]
+type = SinY
+time = 5727
+value = 2, 4
+
+
+
+
+
+
+
+[BGCtrl 8.200]
+type = SinY
+time = 3
+value = 2, 4
+
+[BGCtrl 8.201]
+type = SinY
+time = 84
+value = 2, 4
+
+[BGCtrl 8.202]
+type = SinY
+time = 164
+value = 2, 4
+
+[BGCtrl 8.203]
+type = SinY
+time = 207
+value = 2, 4
+
+[BGCtrl 8.204]
+type = SinY
+time = 256
+value = 2, 4
+
+[BGCtrl 8.205]
+type = SinY
+time = 296
+value = 2, 4
+
+[BGCtrl 8.206]
+type = SinY
+time = 366
+value = 2, 4
+
+[BGCtrl 8.207]
+type = SinY
+time = 427
+value = 2, 4
+
+[BGCtrl 8.208]
+type = SinY
+time = 489
+value = 2, 4
+
+[BGCtrl 8.209]
+type = SinY
+time = 569
+value = 2, 4
+
+[BGCtrl 8.210]
+type = SinY
+time = 629
+value = 2, 4
+
+[BGCtrl 8.211]
+type = SinY
+time = 667
+value = 2, 4
+
+[BGCtrl 8.212]
+type = SinY
+time = 699
+value = 2, 4
+
+[BGCtrl 8.213]
+type = SinY
+time = 726
+value = 2, 4
+
+[BGCtrl 8.214]
+type = SinY
+time = 807
+value = 2, 4
+
+[BGCtrl 8.215]
+type = SinY
+time = 865
+value = 2, 4
+
+[BGCtrl 8.216]
+type = SinY
+time = 925
+value = 2, 4
+
+[BGCtrl 8.217]
+type = SinY
+time = 995
+value = 2, 4
+
+[BGCtrl 8.218]
+type = SinY
+time = 1057
+value = 2, 4
+
+[BGCtrl 8.219]
+type = SinY
+time = 1188
+value = 2, 4
+
+[BGCtrl 8.220]
+type = SinY
+time = 1180
+value = 2, 4
+
+[BGCtrl 8.221]
+type = SinY
+time = 1223
+value = 2, 4
+
+[BGCtrl 8.222]
+type = SinY
+time = 1272
+value = 2, 4
+
+[BGCtrl 8.223]
+type = SinY
+time = 1332
+value = 2, 4
+
+[BGCtrl 8.224]
+type = SinY
+time = 1392
+value = 2, 4
+
+[BGCtrl 8.225]
+type = SinY
+time = 1446
+value = 2, 4
+
+[BGCtrl 8.226]
+type = SinY
+time = 1487
+value = 2, 4
+
+[BGCtrl 8.227]
+type = SinY
+time = 1556
+value = 2, 4
+
+[BGCtrl 8.228]
+type = SinY
+time = 1606
+value = 2, 4
+
+[BGCtrl 8.229]
+type = SinY
+time = 1666
+value = 2, 4
+
+[BGCtrl 8.230]
+type = SinY
+time = 1723
+value = 2, 4
+
+[BGCtrl 8.231]
+type = SinY
+time = 1755
+value = 2, 4
+
+[BGCtrl 8.232]
+type = SinY
+time = 1837
+value = 2, 4
+
+[BGCtrl 8.233]
+type = SinY
+time = 1917
+value = 2, 4
+
+[BGCtrl 8.234]
+type = SinY
+time = 1960
+value = 2, 4
+
+[BGCtrl 8.235]
+type = SinY
+time = 2009
+value = 2, 4
+
+[BGCtrl 8.236]
+type = SinY
+time = 2049
+value = 2, 4
+
+[BGCtrl 8.237]
+type = SinY
+time = 2119
+value = 2, 4
+
+[BGCtrl 8.238]
+type = SinY
+time = 2180
+value = 2, 4
+
+[BGCtrl 8.239]
+type = SinY
+time = 2242
+value = 2, 4
+
+[BGCtrl 8.240]
+type = SinY
+time = 2322
+value = 2, 4
+
+[BGCtrl 8.241]
+type = SinY
+time = 2382
+value = 2, 4
+
+[BGCtrl 8.242]
+type = SinY
+time = 2715
+value = 2, 4
+
+[BGCtrl 8.243]
+type = SinY
+time = 2797
+value = 2, 4
+
+[BGCtrl 8.244]
+type = SinY
+time = 2877
+value = 2, 4
+
+[BGCtrl 8.245]
+type = SinY
+time = 2920
+value = 2, 4
+
+[BGCtrl 8.246]
+type = SinY
+time = 2969
+value = 2, 4
+
+[BGCtrl 8.247]
+type = SinY
+time = 3009
+value = 2, 4
+
+[BGCtrl 8.248]
+type = SinY
+time = 3079
+value = 2, 4
+
+[BGCtrl 8.249]
+type = SinY
+time = 3140
+value = 2, 4
+
+[BGCtrl 8.250]
+type = SinY
+time = 3202
+value = 2, 4
+
+[BGCtrl 8.251]
+type = SinY
+time = 3282
+value = 2, 4
+
+[BGCtrl 8.252]
+type = SinY
+time = 3342
+value = 2, 4
+
+[BGCtrl 8.253]
+type = SinY
+time = 2415
+value = 2, 4
+
+[BGCtrl 8.254]
+type = SinY
+time = 3375
+value = 2, 4
+
+[BGCtrl 8.255]
+type = SinY
+time = 3407
+value = 2, 4
+
+[BGCtrl 8.256]
+type = SinY
+time = 3434
+value = 2, 4
+
+[BGCtrl 8.257]
+type = SinY
+time = 3515
+value = 2, 4
+
+[BGCtrl 8.258]
+type = SinY
+time = 3573
+value = 2, 4
+
+[BGCtrl 8.259]
+type = SinY
+time = 3633
+value = 2, 4
+
+[BGCtrl 8.260]
+type = SinY
+time = 3703
+value = 2, 4
+
+[BGCtrl 8.261]
+type = SinY
+time = 3765
+value = 2, 4
+
+[BGCtrl 8.262]
+type = SinY
+time = 3896
+value = 2, 4
+
+[BGCtrl 8.263]
+type = SinY
+time = 3888
+value = 2, 4
+
+[BGCtrl 8.264]
+type = SinY
+time = 3931
+value = 2, 4
+
+[BGCtrl 8.265]
+type = SinY
+time = 3980
+value = 2, 4
+
+[BGCtrl 8.266]
+type = SinY
+time = 4040
+value = 2, 4
+
+[BGCtrl 8.267]
+type = SinY
+time = 4100
+value = 2, 4
+
+[BGCtrl 8.268]
+type = SinY
+time = 4154
+value = 2, 4
+
+[BGCtrl 8.269]
+type = SinY
+time = 4195
+value = 2, 4
+
+[BGCtrl 8.270]
+type = SinY
+time = 4264
+value = 2, 4
+
+[BGCtrl 8.271]
+type = SinY
+time = 4314
+value = 2, 4
+
+[BGCtrl 8.272]
+type = SinY
+time = 4374
+value = 2, 4
+
+[BGCtrl 8.273]
+type = SinY
+time = 4431
+value = 2, 4
+
+[BGCtrl 8.274]
+type = SinY
+time = 4463
+value = 2, 4
+
+[BGCtrl 8.275]
+type = SinY
+time = 4490
+value = 2, 4
+
+[BGCtrl 8.276]
+type = SinY
+time = 4571
+value = 2, 4
+
+[BGCtrl 8.277]
+type = SinY
+time = 4629
+value = 2, 4
+
+[BGCtrl 8.278]
+type = SinY
+time = 4689
+value = 2, 4
+
+[BGCtrl 8.279]
+type = SinY
+time = 4759
+value = 2, 4
+
+[BGCtrl 8.280]
+type = SinY
+time = 4821
+value = 2, 4
+
+[BGCtrl 8.281]
+type = SinY
+time = 4952
+value = 2, 4
+
+[BGCtrl 8.282]
+type = SinY
+time = 4944
+value = 2, 4
+
+[BGCtrl 8.283]
+type = SinY
+time = 4987
+value = 2, 4
+
+[BGCtrl 8.284]
+type = SinY
+time = 5036
+value = 2, 4
+
+[BGCtrl 8.285]
+type = SinY
+time = 5096
+value = 2, 4
+
+[BGCtrl 8.286]
+type = SinY
+time = 5156
+value = 2, 4
+
+[BGCtrl 8.287]
+type = SinY
+time = 5210
+value = 2, 4
+
+[BGCtrl 8.288]
+type = SinY
+time = 5251
+value = 2, 4
+
+[BGCtrl 8.289]
+type = SinY
+time = 5320
+value = 2, 4
+
+[BGCtrl 8.290]
+type = SinY
+time = 5370
+value = 2, 4
+
+[BGCtrl 8.291]
+type = SinY
+time = 5430
+value = 2, 4
+
+[BGCtrl 8.292]
+type = SinY
+time = 5487
+value = 2, 4
+
+[BGCtrl 8.293]
+type = SinY
+time = 5530
+value = 2, 4
+
+[BGCtrl 8.294]
+type = SinY
+time = 5587
+value = 2, 4
+
+[BGCtrl 8.295]
+type = SinY
+time = 5630
+value = 2, 4
+
+[BGCtrl 8.296]
+type = SinY
+time = 5687
+value = 2, 4
+
+[BGCtrl 8.297]
+type = SinY
+time = 5729
+value = 2, 4
+
+
+
+
+
+
+
+[BGCtrl 8.400]
+type = SinY
+time = 5
+value = 0, 4
+
+[BGCtrl 8.401]
+type = SinY
+time = 86
+value = 0, 4
+
+[BGCtrl 8.402]
+type = SinY
+time = 166
+value = 0, 4
+
+[BGCtrl 8.403]
+type = SinY
+time = 209
+value = 0, 4
+
+[BGCtrl 8.404]
+type = SinY
+time = 258
+value = 0, 4
+
+[BGCtrl 8.405]
+type = SinY
+time = 298
+value = 0, 4
+
+[BGCtrl 8.406]
+type = SinY
+time = 368
+value = 0, 4
+
+[BGCtrl 8.407]
+type = SinY
+time = 429
+value = 0, 4
+
+[BGCtrl 8.408]
+type = SinY
+time = 491
+value = 0, 4
+
+[BGCtrl 8.409]
+type = SinY
+time = 571
+value = 0, 4
+
+[BGCtrl 8.410]
+type = SinY
+time = 631
+value = 0, 4
+
+[BGCtrl 8.411]
+type = SinY
+time = 669
+value = 0, 4
+
+[BGCtrl 8.412]
+type = SinY
+time = 701
+value = 0, 4
+
+[BGCtrl 8.413]
+type = SinY
+time = 728
+value = 0, 4
+
+[BGCtrl 8.414]
+type = SinY
+time = 809
+value = 0, 4
+
+[BGCtrl 8.415]
+type = SinY
+time = 867
+value = 0, 4
+
+[BGCtrl 8.416]
+type = SinY
+time = 927
+value = 0, 4
+
+[BGCtrl 8.417]
+type = SinY
+time = 997
+value = 0, 4
+
+[BGCtrl 8.418]
+type = SinY
+time = 1059
+value = 0, 4
+
+[BGCtrl 8.419]
+type = SinY
+time = 1190
+value = 0, 4
+
+[BGCtrl 8.420]
+type = SinY
+time = 1182
+value = 0, 4
+
+[BGCtrl 8.421]
+type = SinY
+time = 1225
+value = 0, 4
+
+[BGCtrl 8.422]
+type = SinY
+time = 1274
+value = 0, 4
+
+[BGCtrl 8.423]
+type = SinY
+time = 1334
+value = 0, 4
+
+[BGCtrl 8.424]
+type = SinY
+time = 1394
+value = 0, 4
+
+[BGCtrl 8.425]
+type = SinY
+time = 1448
+value = 0, 4
+
+[BGCtrl 8.426]
+type = SinY
+time = 1489
+value = 0, 4
+
+[BGCtrl 8.427]
+type = SinY
+time = 1558
+value = 0, 4
+
+[BGCtrl 8.428]
+type = SinY
+time = 1608
+value = 0, 4
+
+[BGCtrl 8.429]
+type = SinY
+time = 1668
+value = 0, 4
+
+[BGCtrl 8.430]
+type = SinY
+time = 1725
+value = 0, 4
+
+[BGCtrl 8.431]
+type = SinY
+time = 1757
+value = 0, 4
+
+[BGCtrl 8.432]
+type = SinY
+time = 1839
+value = 0, 4
+
+[BGCtrl 8.433]
+type = SinY
+time = 1919
+value = 0, 4
+
+[BGCtrl 8.434]
+type = SinY
+time = 1962
+value = 0, 4
+
+[BGCtrl 8.435]
+type = SinY
+time = 2011
+value = 0, 4
+
+[BGCtrl 8.436]
+type = SinY
+time = 2051
+value = 0, 4
+
+[BGCtrl 8.437]
+type = SinY
+time = 2121
+value = 0, 4
+
+[BGCtrl 8.438]
+type = SinY
+time = 2182
+value = 0, 4
+
+[BGCtrl 8.439]
+type = SinY
+time = 2244
+value = 0, 4
+
+[BGCtrl 8.440]
+type = SinY
+time = 2324
+value = 0, 4
+
+[BGCtrl 8.441]
+type = SinY
+time = 2384
+value = 0, 4
+
+[BGCtrl 8.442]
+type = SinY
+time = 2717
+value = 0, 4
+
+[BGCtrl 8.443]
+type = SinY
+time = 2799
+value = 0, 4
+
+[BGCtrl 8.444]
+type = SinY
+time = 2879
+value = 0, 4
+
+[BGCtrl 8.445]
+type = SinY
+time = 2922
+value = 0, 4
+
+[BGCtrl 8.446]
+type = SinY
+time = 2971
+value = 0, 4
+
+[BGCtrl 8.447]
+type = SinY
+time = 3011
+value = 0, 4
+
+[BGCtrl 8.448]
+type = SinY
+time = 3081
+value = 0, 4
+
+[BGCtrl 8.449]
+type = SinY
+time = 3142
+value = 0, 4
+
+[BGCtrl 8.450]
+type = SinY
+time = 3204
+value = 0, 4
+
+[BGCtrl 8.451]
+type = SinY
+time = 3284
+value = 0, 4
+
+[BGCtrl 8.452]
+type = SinY
+time = 3344
+value = 0, 4
+
+[BGCtrl 8.453]
+type = SinY
+time = 2417
+value = 0, 4
+
+[BGCtrl 8.454]
+type = SinY
+time = 3377
+value = 0, 4
+
+[BGCtrl 8.455]
+type = SinY
+time = 3409
+value = 0, 4
+
+[BGCtrl 8.456]
+type = SinY
+time = 3436
+value = 0, 4
+
+[BGCtrl 8.457]
+type = SinY
+time = 3517
+value = 0, 4
+
+[BGCtrl 8.458]
+type = SinY
+time = 3575
+value = 0, 4
+
+[BGCtrl 8.459]
+type = SinY
+time = 3635
+value = 0, 4
+
+[BGCtrl 8.460]
+type = SinY
+time = 3705
+value = 0, 4
+
+[BGCtrl 8.461]
+type = SinY
+time = 3767
+value = 0, 4
+
+[BGCtrl 8.462]
+type = SinY
+time = 3898
+value = 0, 4
+
+[BGCtrl 8.463]
+type = SinY
+time = 3890
+value = 0, 4
+
+[BGCtrl 8.464]
+type = SinY
+time = 3933
+value = 0, 4
+
+[BGCtrl 8.465]
+type = SinY
+time = 3982
+value = 0, 4
+
+[BGCtrl 8.466]
+type = SinY
+time = 4042
+value = 0, 4
+
+[BGCtrl 8.467]
+type = SinY
+time = 4102
+value = 0, 4
+
+[BGCtrl 8.468]
+type = SinY
+time = 4156
+value = 0, 4
+
+[BGCtrl 8.469]
+type = SinY
+time = 4197
+value = 0, 4
+
+[BGCtrl 8.470]
+type = SinY
+time = 4266
+value = 0, 4
+
+[BGCtrl 8.471]
+type = SinY
+time = 4316
+value = 0, 4
+
+[BGCtrl 8.472]
+type = SinY
+time = 4376
+value = 0, 4
+
+[BGCtrl 8.473]
+type = SinY
+time = 4433
+value = 0, 4
+
+[BGCtrl 8.274]
+type = SinY
+time = 4465
+value = 0, 4
+
+[BGCtrl 8.275]
+type = SinY
+time = 4492
+value = 0, 4
+
+[BGCtrl 8.276]
+type = SinY
+time = 4573
+value = 0, 4
+
+[BGCtrl 8.277]
+type = SinY
+time = 4631
+value = 0, 4
+
+[BGCtrl 8.278]
+type = SinY
+time = 4691
+value = 0, 4
+
+[BGCtrl 8.279]
+type = SinY
+time = 4761
+value = 0, 4
+
+[BGCtrl 8.280]
+type = SinY
+time = 4823
+value = 0, 4
+
+[BGCtrl 8.281]
+type = SinY
+time = 4954
+value = 0, 4
+
+[BGCtrl 8.282]
+type = SinY
+time = 4946
+value = 0, 4
+
+[BGCtrl 8.283]
+type = SinY
+time = 4989
+value = 0, 4
+
+[BGCtrl 8.284]
+type = SinY
+time = 5038
+value = 0, 4
+
+[BGCtrl 8.285]
+type = SinY
+time = 5098
+value = 0, 4
+
+[BGCtrl 8.286]
+type = SinY
+time = 5158
+value = 0, 4
+
+[BGCtrl 8.287]
+type = SinY
+time = 5212
+value = 0, 4
+
+[BGCtrl 8.288]
+type = SinY
+time = 5253
+value = 0, 4
+
+[BGCtrl 8.289]
+type = SinY
+time = 5322
+value = 0, 4
+
+[BGCtrl 8.290]
+type = SinY
+time = 5372
+value = 0, 4
+
+[BGCtrl 8.291]
+type = SinY
+time = 5432
+value = 0, 4
+
+[BGCtrl 8.292]
+type = SinY
+time = 5489
+value = 0, 4
+
+[BGCtrl 8.293]
+type = SinY
+time = 5532
+value = 0, 4
+
+[BGCtrl 8.294]
+type = SinY
+time = 5589
+value = 0, 4
+
+[BGCtrl 8.295]
+type = SinY
+time = 5632
+value = 0, 4
+
+[BGCtrl 8.296]
+type = SinY
+time = 5689
+value = 0, 4
+
+[BGCtrl 8.297]
+type = SinY
+time = 5731
+value = 0, 4

@@ -1,0 +1,219 @@
+; Stage information :
+; -----------------
+; From the game: 	SvC Chaos Plus - SNK Vs Capcom
+; Name:			Green of Forest
+; Version:		0.1b
+
+; Rip Informations :	
+; ----------------
+; by:			Dark Saviour
+; from:			Win Kawaks 1.45
+; with:			MCM 1.5
+; date:			08/11/2003
+; update:		11/11/2003
+
+; Contacts :
+; --------
+; email: 		darksaviour77@hotmail.com
+; site:			http://www.ds-arena.fr.st
+
+; Please don't link these files ;)
+
+[Info]
+;name = "SVC - Green of Forest"
+name = "r"
+
+[Camera]
+startx = 0
+starty = -4
+boundleft = -108
+boundright = 108
+boundhigh = -40
+boundlow = -10
+verticalfollow = .25
+floortension = 0
+tension = 50
+zoomin = 1
+zoomout = 0.8
+
+
+;--------------------------------------------------------
+[PlayerInfo]
+p1startx = -80          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1startz = 0            ;Starting z coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+
+;--- Player 2 ---
+p2startx = 80
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+topbound  =  0     ;Top bound (z-movement)
+botbound  =  0     ;Bottom bound
+
+;--------------------------------------------------------
+[Scaling]
+topz     = 0       
+botz     = 50      
+topscale = 1       
+botscale = 1.2     
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 24    ;Dist from left of screen that player can move to
+screenright = 24   ;Right edge
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 220
+autoturn = 1
+resetBG = 1
+
+;--------------------------------------------------------
+[Shadow]
+color = 0, 0, 0
+yscale = .15
+reflect = 0
+
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/svc-forest.mp3
+bgvolume = 255
+
+[BGdef]
+spr = stages/svc-greenofforest.sff
+debugbg = 1
+
+;--------------------------------------------------------
+
+[BG Background]
+type = normal 
+spriteno = 0, 0
+start = 0, 0
+delta = .648148, .40625
+
+[BG WaterFall]
+type = anim
+actionno = 1
+start = 49, 94
+delta = .648148, .40625
+
+[BG Scene]
+type = normal 
+spriteno = 2, 0
+start = 0, 0
+delta = 1, 1
+mask = 1
+
+[BG Deer]
+type = anim
+actionno = 3
+start = -50, 104
+delta = 1, 1
+
+[BG Ground]
+type = anim
+actionno = 4
+start = 0, 179
+delta = 1, 1
+
+[BG Leaf]
+type = anim
+actionno = 5
+start = 0, 0
+delta = 1, 1
+layerno = 1
+ID = 5
+
+;--------------------------------------------------------
+
+[Begin Action 1] ; Waterfall
+1,0, 0,0, 7
+1,1, 0,0, 7
+1,2, 0,0, 7
+1,3, 0,0, 7 
+1,4, 0,0, 7
+1,5, 0,0, 7
+1,6, 0,0, 7
+1,7, 0,0, 7
+
+[Begin Action 3] ; Deer
+3,0, 0,0, 21
+3,1, 0,0, 7
+3,2, 0,0, 7
+3,3, 0,0, 7
+3,4, 0,0, 7
+3,5, 0,0, 7
+
+[Begin Action 4] ; Ground
+4,0, 0,0, 7
+4,1, 0,0, 7
+4,2, 0,0, 7
+4,3, 0,0, 7
+4,4, 0,0, 7
+4,5, 0,0, 7
+4,6, 0,0, 7
+4,7, 0,0, 7
+
+[Begin Action 5] ; Leaf
+5,0, 0,0, 9
+5,1, 0,0, 9
+5,2, 0,0, 9
+5,3, 0,0, 9
+5,4, 0,0, 9
+5,5, 0,0, 9
+5,6, 0,0, 9
+5,7, 0,0, 9
+
+;--------------------------------------------------------
+
+[BGCtrlDef LeafPosition]
+looptime = 2400
+CtrlID = 5
+
+[BGCtrl Vel]
+type = VelSet
+time = 0
+ctrlID = 5
+x = -1
+y = 2
+
+[BGCtrl Pos1]
+type = PosSet
+time = 0
+ctrlID = 5
+x = 0
+y = -103
+
+[BGCtrl Pos2]
+type = PosSet
+time = 480
+ctrlID = 5
+x = 75
+y = -103
+
+[BGCtrl Pos3]
+type = PosSet
+time = 960
+ctrlID = 5
+x = 150
+y = -103
+
+[BGCtrl Pos4]
+type = PosSet
+time = 1440
+ctrlID = 5
+x = 225
+y = -103
+
+[BGCtrl Pos5]
+type = PosSet
+time = 1920
+ctrlID = 5
+x = 300
+y = -103
